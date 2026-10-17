@@ -1,0 +1,1133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Clocked</title>
+<meta name="description" content="Budgeting that counts spending in hours of your work.">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Clocked">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#EDF0F4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0C131E" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px/1.4 -apple-system,system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<style>
+/* Layout: one-column phone app, stacked cards under a sticky header, fixed bottom tab bar with a center "log" button. Time-card motif: perforated card headers, hours as the second currency. */
+:root{
+  --bg:#EDF0F4; --surface:#FFFFFF; --surface-2:#E2E7EE; --ink:#142033; --muted:#5A6678; --line:#D2D9E3;
+  --accent:#E38A22; --accent-soft:#FBE7CC; --accent-ink:#6E3B00;
+  --save:#16806A; --save-soft:#D3EFE7; --want:#C4435A; --want-soft:#F8DDE2; --need:#3A6CB3; --need-soft:#DCE6F5; --debt:#7A5BB8; --debt-soft:#E7E0F5;
+  --shadow:0 1px 0 rgba(20,32,51,.04),0 6px 18px -8px rgba(20,32,51,.18);
+  --f-display:"Bricolage Grotesque","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --f-body:"Figtree",-apple-system,"Segoe UI",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --r:16px; --tabh:64px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0C131E; --surface:#152032; --surface-2:#1D2A3F; --ink:#E7ECF4; --muted:#93A0B4; --line:#283651;
+  --accent:#F2A541; --accent-soft:#3A2A14; --accent-ink:#FFD7A0;
+  --save:#3CC39E; --save-soft:#143A33; --want:#EE6F84; --want-soft:#3D1D27; --need:#7CA7EA; --need-soft:#1A2B47; --debt:#AE93EC; --debt-soft:#2A2244;
+  --shadow:0 1px 0 rgba(0,0,0,.2),0 8px 22px -10px rgba(0,0,0,.6); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0C131E; --surface:#152032; --surface-2:#1D2A3F; --ink:#E7ECF4; --muted:#93A0B4; --line:#283651;
+  --accent:#F2A541; --accent-soft:#3A2A14; --accent-ink:#FFD7A0;
+  --save:#3CC39E; --save-soft:#143A33; --want:#EE6F84; --want-soft:#3D1D27; --need:#7CA7EA; --need-soft:#1A2B47; --debt:#AE93EC; --debt-soft:#2A2244;
+  --shadow:0 1px 0 rgba(0,0,0,.2),0 8px 22px -10px rgba(0,0,0,.6); color-scheme:dark}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.45;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+*{box-sizing:border-box}
+button,input,select{font:inherit;color:inherit}
+.num,.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+h1,h2,h3{font-family:var(--f-display);margin:0;text-wrap:balance;letter-spacing:-.01em}
+.app{max-width:520px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 calc(var(--tabh) + 28px + env(safe-area-inset-bottom,0px))}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px 10px}
+.brand{display:flex;align-items:baseline;gap:8px}
+.brand h1{font-size:26px;font-weight:800}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);display:inline-block;transform:translateY(-2px)}
+.sync{font-size:11px;color:var(--muted);letter-spacing:.04em;border:0;background:var(--surface-2);border-radius:999px;padding:3px 8px;cursor:pointer;font-weight:600}
+.sync.bad{background:var(--want-soft);color:var(--want)}
+.plan-row{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:center;padding:8px 0;border-top:1px solid var(--line)}
+.plan-row .meter{grid-column:1/-1;height:6px}
+.plan-row b{font-weight:600;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.plan-row span{font-family:var(--f-mono);font-size:12.5px;font-weight:700}
+textarea{width:100%;min-height:90px;background:var(--surface-2);border:1.5px solid transparent;border-radius:11px;padding:10px;font:13px/1.4 var(--f-mono);color:var(--ink)}
+.streak{display:flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 12px 6px 9px;font-weight:700;box-shadow:var(--shadow)}
+.flame{width:18px;height:22px;transform-origin:50% 90%}
+.streak.on .flame{animation:flick 1.6s ease-in-out infinite}
+.streak .ct{font-family:var(--f-mono);font-size:15px}
+.streak .fz{font-size:11px;color:var(--need);font-weight:600}
+@keyframes flick{0%,100%{transform:scale(1) rotate(-2deg)}40%{transform:scale(1.08,.95) rotate(2deg)}70%{transform:scale(.96,1.06) rotate(-1deg)}}
+
+.sample-bar{display:flex;gap:10px;align-items:center;justify-content:space-between;background:var(--accent-soft);color:var(--accent-ink);border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:13.5px;font-weight:600}
+.sample-bar button{flex:none}
+.sample-bar.warn{background:var(--want-soft);color:var(--want);align-items:flex-start}
+
+.screen{display:flex;flex-direction:column;gap:14px}
+.card{background:var(--surface);border-radius:var(--r);padding:16px;box-shadow:var(--shadow);border:1px solid var(--line);min-width:0}
+.card h2{font-size:18px;font-weight:700}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+.stack{display:flex;flex-direction:column;gap:10px}
+
+/* time card hero */
+.timecard{position:relative;overflow:hidden;padding-top:26px}
+.timecard::before{content:"";position:absolute;left:0;right:0;top:0;height:14px;background:var(--surface-2);
+  -webkit-mask:radial-gradient(circle at 10px 7px,transparent 3.2px,#000 3.6px) 0 0/20px 14px;mask:radial-gradient(circle at 10px 7px,transparent 3.2px,#000 3.6px) 0 0/20px 14px}
+.hero{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center}
+.hero .big{font-family:var(--f-display);font-weight:800;font-size:44px;line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.hero .big.over{color:var(--want)}
+.hero .hrs{margin-top:8px;display:inline-flex;align-items:center;gap:6px;font-family:var(--f-mono);font-size:13px;font-weight:700;color:var(--accent-ink);background:var(--accent-soft);border-radius:6px;padding:4px 8px}
+.ring{width:96px;height:96px}
+.ring circle{fill:none;stroke-width:10}
+.ring .trk{stroke:var(--surface-2)}
+.ring .val{stroke:var(--accent);stroke-linecap:round;transition:stroke-dashoffset 1s cubic-bezier(.2,.8,.2,1),stroke .3s;transform:rotate(-90deg);transform-origin:50% 50%}
+.ring .val.over{stroke:var(--want)}
+.ring text{font-family:var(--f-mono);font-size:15px;font-weight:700;fill:var(--ink);text-anchor:middle;dominant-baseline:central}
+.ring .lbl{font-family:var(--f-body);font-size:9px;font-weight:600;fill:var(--muted);letter-spacing:.08em}
+
+.split{display:flex;height:12px;border-radius:6px;overflow:hidden;background:var(--surface-2);gap:2px;margin-top:16px}
+.split i{display:block;height:100%;transition:flex-grow .8s cubic-bezier(.2,.8,.2,1)}
+.legend{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 14px;margin-top:10px;font-size:12.5px}
+.legend span{display:flex;align-items:center;gap:6px;min-width:0}
+.legend b{font-family:var(--f-mono);font-weight:700;margin-left:auto;font-size:12px}
+.sw{width:9px;height:9px;border-radius:3px;flex:none}
+
+/* wage + hours */
+.wage{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}
+.wage .rate{font-family:var(--f-display);font-weight:800;font-size:30px;letter-spacing:-.02em}
+.wage .rate small{font-size:15px;font-weight:600;color:var(--muted)}
+.stepper{display:flex;align-items:center;gap:4px;background:var(--surface-2);border-radius:12px;padding:4px}
+.stepper button{width:38px;height:38px;border:0;border-radius:9px;background:var(--surface);font-size:20px;font-weight:700;cursor:pointer;box-shadow:var(--shadow)}
+.stepper button:active{transform:scale(.92)}
+.stepper .v{min-width:54px;text-align:center;font-family:var(--f-mono);font-weight:700;font-size:17px}
+.stepper .v small{display:block;font-family:var(--f-body);font-size:10px;color:var(--muted);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+
+/* nudge */
+.nudge{display:flex;gap:12px;align-items:center;background:var(--need-soft);border-color:transparent}
+.nudge .t{flex:1;min-width:0}
+.nudge strong{display:block}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+
+.btn{border:0;border-radius:11px;padding:10px 14px;font-weight:700;font-size:14px;cursor:pointer;background:var(--surface-2);color:var(--ink);transition:transform .12s}
+.btn:active{transform:scale(.96)}
+.btn.primary{background:var(--ink);color:var(--surface)}
+.btn.accent{background:var(--accent);color:#2A1600}
+.btn.save{background:var(--save);color:#fff}
+.btn.ghost{background:transparent;border:1px solid var(--line)}
+.btn.danger{background:var(--want);color:#fff}
+.btn.sm{padding:7px 11px;font-size:13px;border-radius:9px}
+.btn.block{width:100%}
+:focus-visible{outline:2.5px solid var(--accent);outline-offset:2px}
+
+/* fun tax */
+.funtax{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center}
+.coin{width:44px;height:44px;border-radius:50%;background:var(--save-soft);color:var(--save);display:grid;place-items:center;font-family:var(--f-mono);font-weight:700;font-size:18px}
+.funtax .amt{font-family:var(--f-mono);font-weight:700;font-size:20px}
+
+/* week review bars */
+.bars{display:flex;flex-direction:column;gap:9px;margin-top:12px}
+.bar{display:grid;grid-template-columns:96px 1fr 76px;gap:10px;align-items:center;font-size:13px}
+.bar .tr{height:10px;background:var(--surface-2);border-radius:5px;overflow:hidden}
+.bar .fl{height:100%;border-radius:5px;transition:width .9s cubic-bezier(.2,.8,.2,1)}
+.bar .v{text-align:right;font-family:var(--f-mono);font-weight:700;font-size:12.5px}
+
+/* tx list */
+.tx{display:flex;flex-direction:column}
+.txr{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
+.txr:first-child{border-top:0}
+.tag{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-size:11px;font-weight:800;letter-spacing:.02em}
+.tag.need{background:var(--need-soft);color:var(--need)}
+.tag.want{background:var(--want-soft);color:var(--want)}
+.txr .nm{min-width:0;overflow:hidden}
+.txr .nm b{display:block;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.txr .nm span{font-size:12px;color:var(--muted)}
+.txr .r{text-align:right;display:flex;align-items:center;gap:8px}
+.txr .a{font-family:var(--f-mono);font-weight:700}
+.txr .h{display:block;font-family:var(--f-mono);font-size:11px;color:var(--muted)}
+.x{border:0;background:transparent;color:var(--muted);width:30px;height:30px;border-radius:8px;cursor:pointer;font-size:16px}
+.x.confirm{background:var(--want);color:#fff;width:auto;padding:0 10px;font-size:12px;font-weight:700}
+.empty{padding:18px 4px;text-align:center;color:var(--muted);font-size:14px}
+
+/* badges */
+.badges{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:12px}
+.badge{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;font-size:11px;font-weight:600;color:var(--muted)}
+.badge .md{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--surface-2);border:2px dashed var(--line);font-family:var(--f-mono);font-weight:700;font-size:13px;color:var(--muted)}
+.badge.got{color:var(--ink)}
+.badge.got .md{border:0;background:var(--accent);color:#2A1600;box-shadow:0 0 0 4px var(--accent-soft)}
+
+/* debt */
+.kpis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.kpi{background:var(--surface-2);border-radius:12px;padding:12px;min-width:0}
+.kpi .v{font-family:var(--f-display);font-weight:800;font-size:22px;letter-spacing:-.02em;margin-top:2px}
+.kpi .v.good{color:var(--save)}
+.seg{display:grid;grid-template-columns:1fr 1fr;background:var(--surface-2);border-radius:12px;padding:4px;gap:4px}
+.seg button{border:0;background:transparent;border-radius:9px;padding:9px;font-weight:700;cursor:pointer;color:var(--muted)}
+.seg button.on{background:var(--surface);color:var(--ink);box-shadow:var(--shadow)}
+.range{width:100%;accent-color:var(--accent);height:28px}
+.debt{display:flex;flex-direction:column;gap:10px}
+.debt .hd{display:grid;grid-template-columns:28px 1fr auto;gap:10px;align-items:center}
+.ord{width:28px;height:28px;border-radius:8px;background:var(--debt-soft);color:var(--debt);display:grid;place-items:center;font-family:var(--f-mono);font-weight:700;font-size:13px}
+.debt .bal{font-family:var(--f-mono);font-weight:700;font-size:17px;text-align:right}
+.meter{height:12px;background:var(--surface-2);border-radius:6px;overflow:hidden}
+.meter i{display:block;height:100%;background:var(--debt);border-radius:6px;transition:width 1s cubic-bezier(.2,.8,.2,1)}
+.debt.paid .meter i{background:var(--save)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:12px;font-weight:600;background:var(--surface-2);border-radius:999px;padding:4px 10px;color:var(--muted)}
+.chip.good{background:var(--save-soft);color:var(--save)}
+.inline{display:flex;gap:8px}
+.tgt{margin-top:12px;background:var(--debt-soft);border-radius:14px;padding:14px}
+.tgt .kpi{background:var(--surface)}
+.tgt-big{display:flex;flex-direction:column}
+.tgt-big .mono{font-family:var(--f-display);font-weight:800;font-size:38px;letter-spacing:-.03em;line-height:1.05;color:var(--ink)}
+.tgt-big small{color:var(--muted);font-weight:600;font-size:13px}
+.tgt .plan-row{border-color:color-mix(in srgb,var(--debt) 25%,transparent)}
+.fund{display:flex;flex-direction:column;gap:8px;background:var(--save-soft);border-radius:12px;padding:12px}
+.fund .meter{background:var(--surface)}
+.fund .inline input{background:var(--surface)}
+.inline input{flex:1;min-width:0}
+
+/* goals jar */
+.goal{display:grid;grid-template-columns:76px 1fr;gap:14px;align-items:center}
+.jar{position:relative;width:76px;height:96px;border-radius:14px 14px 18px 18px;border:3px solid var(--line);overflow:hidden;background:var(--surface-2)}
+.jar::before{content:"";position:absolute;left:12px;right:12px;top:-3px;height:9px;background:var(--line);border-radius:0 0 4px 4px;z-index:2}
+.jar .fill{position:absolute;left:0;right:0;bottom:0;background:var(--save);transition:height 1.2s cubic-bezier(.2,.8,.2,1)}
+.jar .wave{position:absolute;left:-50%;width:200%;height:14px;top:-10px;background:radial-gradient(14px 8px at 50% 100%,var(--save) 98%,transparent) 0 0/28px 14px repeat-x;animation:wave 2.4s linear infinite}
+.jar .pct{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--f-mono);font-weight:700;font-size:15px;z-index:3;color:var(--ink);text-shadow:0 0 6px var(--surface)}
+@keyframes wave{to{transform:translateX(28px)}}
+.goal .g h3{font-size:17px}
+.goal .g .money{font-family:var(--f-mono);font-weight:700;margin-top:2px}
+
+/* forms */
+.form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.form .full{grid-column:1/-1}
+.field{display:flex;flex-direction:column;gap:5px;min-width:0}
+.field label{font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.03em}
+.field input,.field select,.inline input{width:100%;background:var(--surface-2);border:1.5px solid transparent;border-radius:11px;padding:11px 12px;font-size:16px;min-width:0}
+.field input:focus,.field select:focus,.inline input:focus{outline:none;border-color:var(--accent)}
+.hint{font-size:12px;color:var(--muted)}
+.switch{display:flex;align-items:center;justify-content:space-between;gap:12px;font-weight:600}
+.switch input{width:46px;height:28px;accent-color:var(--save)}
+.tax{display:flex;flex-direction:column;gap:2px;margin-top:4px}
+.tax .tl{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px dashed var(--line);font-size:14px}
+.tax .tl b{font-family:var(--f-mono);font-weight:700}
+.tax .tl.tot{border-bottom:0;padding-top:10px;font-weight:700;font-size:15px}
+.tax .tl.tot b{color:var(--save)}
+details summary{cursor:pointer;font-weight:700;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"+";float:right;font-family:var(--f-mono);color:var(--muted)}
+details[open] summary::after{content:"−"}
+
+/* tab bar */
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--surface);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px);padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px)}
+.tabs nav{max-width:520px;margin:0 auto;height:var(--tabh);display:grid;grid-template-columns:repeat(5,1fr);align-items:center}
+.tabs button{border:0;background:transparent;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11px;font-weight:700;color:var(--muted);cursor:pointer;padding:6px 0}
+.tabs button svg{width:23px;height:23px}
+.tabs button.on{color:var(--ink)}
+.tabs button.on svg{color:var(--accent)}
+.fab{width:58px!important;height:58px;border-radius:18px!important;background:var(--ink)!important;color:var(--surface)!important;margin:-26px auto 0;box-shadow:0 10px 24px -8px rgba(20,32,51,.55);justify-self:center;transition:transform .15s}
+.fab svg{width:28px!important;height:28px!important;color:var(--surface)!important}
+.fab:active{transform:scale(.92)}
+
+/* sheet */
+.scrim{position:fixed;inset:0;background:rgba(8,12,20,.45);z-index:40;opacity:0;transition:opacity .25s}
+.scrim.show{opacity:1}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:41;background:var(--surface);border-radius:22px 22px 0 0;padding:10px max(18px,env(safe-area-inset-right,0px)) calc(18px + env(safe-area-inset-bottom,0px)) max(18px,env(safe-area-inset-left,0px));max-width:560px;margin:0 auto;transform:translateY(105%);transition:transform .32s cubic-bezier(.2,.9,.25,1);max-height:92%;overflow:auto}
+.sheet.show{transform:none}
+.grab{width:40px;height:5px;border-radius:3px;background:var(--line);margin:0 auto 12px}
+.amt-in{display:flex;align-items:center;justify-content:center;gap:4px;margin:6px 0 4px}
+.amt-in span{font-family:var(--f-display);font-size:40px;font-weight:800;color:var(--muted)}
+.amt-in input{font-family:var(--f-display);font-size:52px;font-weight:800;border:0;background:transparent;width:6.2ch;text-align:left;outline:none;letter-spacing:-.03em;font-variant-numeric:tabular-nums;padding:0}
+.live-hrs{text-align:center;font-family:var(--f-mono);font-weight:700;font-size:14px;color:var(--accent-ink);min-height:22px}
+.cats{display:flex;flex-direction:column;gap:10px;margin:14px 0}
+.cats .grp{display:flex;flex-wrap:wrap;gap:7px}
+.cat{border:1.5px solid var(--line);background:transparent;border-radius:999px;padding:8px 12px;font-weight:600;font-size:13.5px;cursor:pointer}
+.cat.need.on{background:var(--need);border-color:var(--need);color:#fff}
+.cat.want.on{background:var(--want);border-color:var(--want);color:#fff}
+.cat:active{transform:scale(.95)}
+
+/* toast + stamp + confetti */
+.toast{position:fixed;left:50%;top:calc(env(safe-area-inset-top,0px) + 14px);z-index:60;transform:translate(-50%,-140%);background:var(--ink);color:var(--surface);padding:11px 16px;border-radius:14px;font-weight:600;font-size:14px;box-shadow:0 12px 30px -10px rgba(0,0,0,.5);transition:transform .35s cubic-bezier(.2,.9,.25,1.2);max-width:calc(100% - 32px);text-align:center}
+.toast.show{transform:translate(-50%,0)}
+.stamp{position:fixed;left:50%;top:42%;z-index:55;pointer-events:none;font-family:var(--f-mono);font-weight:700;font-size:30px;padding:10px 18px;border:4px solid currentColor;border-radius:10px;transform:translate(-50%,-50%) rotate(-8deg) scale(2.4);opacity:0;background:var(--surface)}
+.stamp.go{animation:stamp 1.25s cubic-bezier(.2,.9,.25,1) forwards}
+@keyframes stamp{0%{opacity:0;transform:translate(-50%,-50%) rotate(-8deg) scale(2.4)}18%{opacity:1;transform:translate(-50%,-50%) rotate(-8deg) scale(1)}75%{opacity:1}100%{opacity:0;transform:translate(-50%,-70%) rotate(-8deg) scale(.9)}}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:58;width:100%;height:100%}
+.pop{animation:pop .5s cubic-bezier(.2,.9,.25,1.4)}
+@keyframes pop{0%{transform:scale(.9)}60%{transform:scale(1.04)}100%{transform:scale(1)}}
+.fade-in{animation:fadein .35s ease both}
+@keyframes fadein{from{opacity:.4;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media (max-width:370px){.hero .big{font-size:36px}.bar{grid-template-columns:80px 1fr 66px}}
+</style>
+
+<div class="app">
+  <header class="top">
+    <div class="brand"><h1>Clocked</h1><span class="dot" aria-hidden="true"></span><button class="sync" id="sync" data-act="status" aria-label="Save status">connecting…</button></div>
+    <div class="streak" id="streak" title="Logging streak">
+      <svg class="flame" viewBox="0 0 24 30" aria-hidden="true"><path fill="var(--accent)" d="M12 1c1 5 7 8 7 16a7 7 0 1 1-14 0c0-4 2-6 3-8 .5 2 1.5 3 3 3-1-4 0-8 1-11z"/><path fill="var(--accent-soft)" d="M12 15c.6 2.5 3.5 4 3.5 7.5a3.5 3.5 0 1 1-7 0c0-2 1-3 1.8-4 .3 1 .8 1.4 1.5 1.4-.4-2 0-3.6.2-4.9z"/></svg>
+      <span class="ct" id="streakCt">0</span><span class="fz" id="streakFz"></span>
+    </div>
+  </header>
+  <div id="sampleBar"></div>
+  <main id="main" class="screen"></main>
+</div>
+
+<div class="tabs"><nav id="tabs">
+  <button data-tab="today" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg>Today</button>
+  <button data-tab="debt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg>Debt</button>
+  <button class="fab" data-act="open-add" aria-label="Log a purchase"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+  <button data-tab="goals"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 4h10M8 4v2a4 4 0 0 0-3 4v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-8a4 4 0 0 0-3-4V4"/><path d="M5 14h14"/></svg>Goals</button>
+  <button data-tab="setup"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>Setup</button>
+</nav></div>
+
+<div class="scrim" id="scrim" hidden></div>
+<div class="sheet" id="sheet" role="dialog" aria-label="Log a purchase" hidden></div>
+<div class="toast" id="toast" role="status"></div>
+<div class="stamp" id="stamp" aria-hidden="true"></div>
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<script>
+/* ===== ENGINE (pure functions) ===== */
+const FED = {
+  single:{std:16100,br:[[12400,.10],[50400,.12],[105700,.22],[201775,.24],[256225,.32],[640600,.35],[Infinity,.37]],otCap:12500,otPhase:150000,addlMed:200000},
+  mfj:{std:32200,br:[[24800,.10],[100800,.12],[211400,.22],[403550,.24],[512450,.32],[768700,.35],[Infinity,.37]],otCap:25000,otPhase:300000,addlMed:250000},
+  hoh:{std:24150,br:[[17700,.10],[67450,.12],[105700,.22],[201750,.24],[256200,.32],[640600,.35],[Infinity,.37]],otCap:12500,otPhase:150000,addlMed:200000}
+};
+const SS_BASE = 184500;
+// kind: none | flat (statutory flat rate) | est (approximate effective rate for a typical hourly earner; edit or calibrate)
+const STATES = {
+  AL:["Alabama","est",4.0],AK:["Alaska","none",0],AZ:["Arizona","flat",2.5],AR:["Arkansas","est",3.5],CA:["California","est",4.0],
+  CO:["Colorado","flat",4.4],CT:["Connecticut","est",4.5],DE:["Delaware","est",4.5],DC:["District of Columbia","est",5.0],FL:["Florida","none",0],
+  GA:["Georgia","flat",4.99,{ded:[12000,24000],ot:1750}],HI:["Hawaii","est",6.0],ID:["Idaho","flat",5.3],IL:["Illinois","flat",4.95],IN:["Indiana","flat",2.95],
+  IA:["Iowa","flat",3.8],KS:["Kansas","est",4.5],KY:["Kentucky","flat",3.5],LA:["Louisiana","flat",3.0],ME:["Maine","est",5.5],
+  MD:["Maryland","est",4.5],MA:["Massachusetts","flat",5.0],MI:["Michigan","flat",4.25],MN:["Minnesota","est",5.5],MS:["Mississippi","flat",4.0],
+  MO:["Missouri","est",4.0],MT:["Montana","est",4.5],NE:["Nebraska","est",4.5],NV:["Nevada","none",0],NH:["New Hampshire","none",0],
+  NJ:["New Jersey","est",3.5],NM:["New Mexico","est",3.5],NY:["New York","est",5.0],NC:["North Carolina","flat",3.99],ND:["North Dakota","est",1.5],
+  OH:["Ohio","est",2.75],OK:["Oklahoma","est",4.0],OR:["Oregon","est",7.5],PA:["Pennsylvania","flat",3.07],RI:["Rhode Island","est",4.0],
+  SC:["South Carolina","est",5.0],SD:["South Dakota","none",0],TN:["Tennessee","none",0],TX:["Texas","none",0],UT:["Utah","flat",4.5],
+  VT:["Vermont","est",5.0],VA:["Virginia","est",5.0],WA:["Washington","none",0],WV:["West Virginia","est",4.0],WI:["Wisconsin","est",5.0],WY:["Wyoming","none",0]
+};
+const PERIODS = {weekly:52,biweekly:26,semimonthly:24,monthly:12};
+
+function bracketTax(t, br){let tax=0,prev=0;for(const [top,r] of br){if(t>prev)tax+=(Math.min(t,top)-prev)*r;prev=top;if(t<=top)break}return tax}
+function weeklyGross(wage,h){const reg=Math.min(h,40),ot=Math.max(h-40,0);return wage*reg+1.5*wage*ot}
+function annualCalc(s,h){
+  const wage=+s.wage||0, ot=Math.max(h-40,0);
+  const gross=weeklyGross(wage,h)*52, otPay=1.5*wage*ot*52, otPremium=.5*wage*ot*52;
+  const periods=PERIODS[s.payFreq]||26, f=FED[s.filing]||FED.single;
+  const k401=gross*(+s.k401Pct||0)/100, ins=Math.min((+s.insurance||0)*periods,gross);
+  const agi=Math.max(0,gross-k401-ins);
+  let otDed=Math.min(otPremium,f.otCap);
+  if(agi>f.otPhase)otDed=Math.max(0,otDed-Math.ceil((agi-f.otPhase)/1000)*100);
+  const fedTaxable=Math.max(0,agi-f.std-otDed), federal=bracketTax(fedTaxable,f.br);
+  const ficaW=Math.max(0,gross-ins), ss=Math.min(ficaW,SS_BASE)*.062, med=ficaW*.0145+Math.max(0,ficaW-f.addlMed)*.009;
+  const st=STATES[s.state]||STATES.GA, extra=st[3]||{};
+  const stRate=(s.stateRate!==null&&s.stateRate!==""&&s.stateRate!==undefined&&!isNaN(+s.stateRate))?+s.stateRate:st[2];
+  const stDed=extra.ded?extra.ded[s.filing==="mfj"?1:0]:0, stOt=extra.ot?Math.min(otPay,extra.ot):0;
+  const state=Math.max(0,agi-stDed-stOt)*stRate/100;
+  const net=gross-k401-ins-federal-ss-med-state;
+  return {gross,k401,ins,federal,ss,med,state,stRate,net,otDed,hours:h*52,fedTaxable};
+}
+function weeklyNet(s,h){
+  if(!(+s.wage)||h<=0)return 0;
+  if(s.useStub&&+s.stubGross>0&&+s.stubNet>0)return weeklyGross(+s.wage,h)*(+s.stubNet/+s.stubGross);
+  return annualCalc(s,h).net/52;
+}
+function realHourly(s,h){h=h||+s.hours||40;return h>0?weeklyNet(s,h)/h:0}
+
+/* Debts: balance, apr, min, plus optional promo (months of 0% left), defer (no payment due during promo),
+   fund (cash already set aside, applied before interest starts), prep (monthly set-aside during promo). */
+function simulate(debts,strategy,extra,usePrep=true){
+  const ds=debts.map(d=>({id:d.id,apr:+d.apr||0,min:+d.min||0,bal:Math.max(0,(+d.balance||0)-(+d.fund||0)),promo:+d.promo||0,defer:!!d.defer,prep:usePrep?(+d.prep||0):0})).filter(d=>d.bal>.005);
+  const payoff={};if(!ds.length)return{months:0,interest:0,payoff,stuck:false};
+  let m=0,interest=0;
+  while(ds.some(d=>d.bal>.005)&&m<600){m++;
+    const inPromo=d=>m<=d.promo,due=d=>inPromo(d)&&d.defer?0:d.min;
+    let avail=(+extra||0)+ds.reduce((a,d)=>a+due(d),0);
+    for(const d of ds)if(d.bal>0&&!inPromo(d)){const i=d.bal*d.apr/1200;d.bal+=i;interest+=i}
+    for(const d of ds)if(d.bal>0&&inPromo(d)&&d.prep){d.bal-=Math.min(d.prep,d.bal)}
+    for(const d of ds)if(d.bal>0){const p=Math.min(due(d),d.bal);d.bal-=p;avail-=p}
+    const order=ds.filter(d=>d.bal>0).sort((a,b)=>(inPromo(a)-inPromo(b))||(strategy==="snowball"?a.bal-b.bal||b.apr-a.apr:b.apr-a.apr||a.bal-b.bal));
+    for(const d of order){if(avail<=0)break;const p=Math.min(avail,d.bal);d.bal-=p;avail-=p}
+    for(const d of ds)if(d.bal<=.005&&!payoff[d.id]){payoff[d.id]=m;d.bal=0}
+  }
+  return{months:m,interest,payoff,stuck:m>=600};
+}
+function baselineInterest(debts){let i=0,m=0,stuck=false;for(const d of debts){if(!(+d.balance>0)||!(+d.min>0))continue;const r=simulate([d],"avalanche",0,false);i+=r.interest;m=Math.max(m,r.months);stuck=stuck||r.stuck}return{interest:i,months:m,stuck}}
+/* Side-gig (1099) tax: extra federal income tax, self-employment tax and state tax that `gigNet`
+   (yearly profit after expenses) adds on top of the job. SE tax = 15.3% of 92.35% of profit (Social Security part
+   only up to the wage base left after job wages); half of it is deductible; 20% QBI deduction (assumes income under the
+   ~$200k phase-in). Not owed below $400 profit a year. */
+function gigTaxTotal(s,h,gn){
+  if(!(gn>0))return{fed:0,se:0,state:0};
+  const a=annualCalc(s,h),f=FED[s.filing]||FED.single;
+  const seBase=gn>=400?gn*.9235:0,w2=Math.max(0,a.gross-a.ins),ssRoom=Math.max(0,SS_BASE-w2);
+  const seCore=Math.min(seBase,ssRoom)*.124+seBase*.029;
+  const se=seCore+(Math.max(0,w2+seBase-f.addlMed)-Math.max(0,w2-f.addlMed))*.009;
+  const half=seCore/2,agiW2=Math.max(0,a.gross-a.k401-a.ins);
+  const preQ=Math.max(0,agiW2+gn-half-f.std-a.otDed),qbi=Math.min(.2*Math.max(0,gn-half),.2*preQ);
+  const fed=Math.max(0,bracketTax(Math.max(0,preQ-qbi),f.br)-a.federal);
+  const state=Math.max(0,gn-half)*a.stRate/100;
+  return{fed,se,state};
+}
+function gigTaxFor(s,h,ytdNet,net){const A=gigTaxTotal(s,h,ytdNet),B=gigTaxTotal(s,h,ytdNet+net);
+  const r={fed:B.fed-A.fed,se:B.se-A.se,state:B.state-A.state};r.total=r.fed+r.se+r.state;return r}
+/* Smallest extra monthly payment (on top of minimums) that clears every debt within `months`. */
+function requiredExtra(debts,strategy,months){
+  const base=simulate(debts,strategy,0);if(!base.stuck&&base.months<=months)return{extra:0,sim:base};
+  let lo=0,hi=debts.reduce((a,d)=>a+Math.max(0,(+d.balance||0)-(+d.fund||0)),0)+1;
+  for(let i=0;i<40&&hi-lo>0.5;i++){const mid=(lo+hi)/2,r=simulate(debts,strategy,mid);if(!r.stuck&&r.months<=months)hi=mid;else lo=mid}
+  const extra=Math.ceil(hi);return{extra,sim:simulate(debts,strategy,extra)};
+}
+function payoffOrder(debts,strategy){return debts.filter(d=>+d.balance-(+d.fund||0)>0).sort((a,b)=>((a.promo>0)-(b.promo>0))||(strategy==="snowball"?a.balance-b.balance||b.apr-a.apr:b.apr-a.apr||a.balance-b.balance))}
+/* ===== END ENGINE ===== */
+
+/* ===== dates & format ===== */
+const pad=n=>String(n).padStart(2,"0");
+const ymd=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+const parse=s=>{const [y,m,d]=s.split("-").map(Number);return new Date(y,m-1,d)};
+const addDays=(s,n)=>{const d=parse(s);d.setDate(d.getDate()+n);return ymd(d)};
+const today=()=>ymd(new Date());
+const weekStart=s=>{const d=parse(s);const k=(d.getDay()+6)%7;d.setDate(d.getDate()-k);return ymd(d)};
+const monthKey=s=>s.slice(0,7);
+const addMonths=(n)=>{const d=new Date();d.setDate(1);d.setMonth(d.getMonth()+n);return d};
+const fmtMonth=d=>d.toLocaleDateString("en-US",{month:"short",year:"numeric"});
+const fmtDay=s=>{const t=today();if(s===t)return"Today";if(s===addDays(t,-1))return"Yesterday";return parse(s).toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric"})};
+const money=(n,dec=2)=>{const neg=n<0;n=Math.abs(n);return(neg?"−$":"$")+n.toLocaleString("en-US",{minimumFractionDigits:dec,maximumFractionDigits:dec})};
+const money0=n=>money(Math.round(n),0);
+const hrs=n=>(isFinite(n)?(n<10?n.toFixed(1):Math.round(n)):"—")+" h";
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const toNum=v=>parseFloat(String(v??"").replace(/[^0-9.\-]/g,""));
+const uid=()=>Math.random().toString(36).slice(2,9)+Date.now().toString(36).slice(-4);
+const monthsUntil=s=>{if(!s)return 0;const a=new Date(),b=parse(s);return Math.max(0,(b.getFullYear()-a.getFullYear())*12+(b.getMonth()-a.getMonth())+(b.getDate()>=a.getDate()?0:-1))};
+
+const CATS={
+  need:{rent:"Housing",utilities:"Utilities",bills:"Insurance",transport:"Car & gas",groceries:"Food",phone:"Phone & internet",health:"Health",needother:"Other needs"},
+  want:{dining:"Eating out",fun:"Fun",shopping:"Shopping",subs:"Subscriptions",treats:"Treats",other:"Other"}
+};
+const catType=c=>CATS.need[c]?"need":"want";
+const ESS_HINT={rent:"Rent or mortgage",utilities:"Power, water, gas",bills:"Car, renters, life",transport:"Gas, upkeep, transit",groceries:"Groceries",phone:"Phone, internet",health:"Meds, copays",needother:"Childcare, etc."};
+/* Monthly essentials budget by category; older profiles with a single total count as "Other needs". */
+function essBudget(s){s=s||SU();const e=s.ess||{};const has=Object.values(e).some(v=>+v>0);const o={};for(const k of Object.keys(CATS.need))o[k]=+e[k]||0;
+  if(!has&&+s.essentials>0)o.needother=+s.essentials;return o}
+const essTotal=s=>Object.values(essBudget(s)).reduce((a,v)=>a+v,0);
+const catName=c=>CATS.need[c]||CATS.want[c]||"Other";
+const BADGES=[
+  ["setup","SET","Set up"],["first","1st","First log"],["s7","7d","7-day streak"],["s30","30d","30-day streak"],
+  ["ns5","NO$","5 no-spend days"],["ft50","+50","$50 fun tax saved"],["debt","PAID","Debt paid off"],["goal","GOAL","Goal reached"]
+];
+
+/* pre-interest debt helpers */
+function promoMonths(d){return d.intStart&&d.intStart>today()?Math.max(1,monthsUntil(d.intStart)):0}
+function prepTarget(d){const b=+d.balance||0;return(d.prepTarget===""||d.prepTarget==null)?b:Math.min(b,+d.prepTarget)}
+function prepMonthly(d){const pm=promoMonths(d);if(!pm)return 0;return Math.max(0,prepTarget(d)-(+d.fund||0))/pm}
+const simDebts=ds=>ds.map(d=>({...d,promo:promoMonths(d),prep:prepMonthly(d)}));
+function ftDest(){const k=SU().funTaxGoal||"";
+  if(k.startsWith("debt:")){const d=P().debts.find(x=>x.id===k.slice(5)&&+x.balance>0);if(d)return{kind:"debt",obj:d,name:d.name}}
+  const g=P().goals.find(g=>g.id===k)||P().goals[0];if(g)return{kind:"goal",obj:g,name:g.name};
+  const d=P().debts.find(x=>promoMonths(x)&&+x.balance>0);return d?{kind:"debt",obj:d,name:d.name}:null}
+
+/* ===== state ===== */
+function blankProfile(){return{v:1,setup:{wage:"",hours:40,payFreq:"biweekly",state:"GA",filing:"single",k401Pct:0,insurance:0,stateRate:null,useStub:false,stubGross:"",stubNet:"",essentials:"",ess:{},funTaxPct:10,funTaxGoal:null},
+  debts:[],strategy:"avalanche",extra:0,goals:[],hoursByWeek:{},logDays:[],frozenDays:[],freezes:0,freezeAwardAt:0,noSpendDays:[],gigs:[],gigTaxPaid:{},badges:{},funTaxOwed:0,funTaxPaid:0,months:[],created:today()}}
+function sampleState(){
+  const p=blankProfile();const t=today();
+  Object.assign(p.setup,{wage:22,hours:42,payFreq:"biweekly",state:"GA",filing:"single",insurance:45,essentials:0,ess:{rent:1100,utilities:140,bills:120,transport:160,groceries:380,phone:75}});
+  p.debts=[{id:"s1",name:"Credit card",balance:3200,start:3900,apr:24.99,min:95},{id:"s2",name:"Car loan",balance:9800,start:14500,apr:7.4,min:285},{id:"s3",name:"Couch (0% promo)",balance:1200,start:1200,apr:29.99,min:0,intStart:addDays(t,150),defer:true,prepTarget:"",fund:300}];
+  p.goals=[{id:"g1",name:"Emergency fund",target:4000,saved:1150,date:addDays(t,240)}];
+  p.setup.funTaxGoal="g1";p.funTaxOwed=6.4;p.funTaxPaid=22;
+  p.logDays=[0,1,2,3].map(i=>addDays(t,-i));p.badges={first:1};
+  const items=[[0,"dining",18.5,"Lunch with crew"],[0,"groceries",64.2,"Kroger"],[1,"transport",42,"Gas"],[1,"subs",15.99,"Streaming"],[2,"fun",29.5,"Game night"],[3,"treats",6.25,"Coffee"]]
+    .map(([o,c,a,n])=>({id:uid(),d:addDays(t,-o),c,a,n}));
+  const tx={};for(const it of items){(tx[monthKey(it.d)]=tx[monthKey(it.d)]||[]).push(it)}
+  return{profile:p,tx};
+}
+const S={profile:null,tx:{},sample:false,tab:"today",store:"local"};
+const LS="clocked.v1";
+let lsOK=true;
+function loadLocal(){try{const r=localStorage.getItem(LS);if(r){const j=JSON.parse(r);if(j&&j.profile)return j}}catch(e){lsOK=false}return null}
+/* Second on-phone copy in IndexedDB (survives when one store is cleared), plus a request that iOS treat storage as persistent. */
+const IDBN="clocked",IDBS="kv";let idbOK=null,idbP=null,idbT=null,persistState="not asked",askedPersist=false;
+const withTimeout=(p,ms)=>Promise.race([p,new Promise((_,r)=>setTimeout(()=>r(new Error("timeout")),ms))]);
+function idb(){if(!idbP)idbP=withTimeout(new Promise((res,rej)=>{try{const r=indexedDB.open(IDBN,1);r.onupgradeneeded=()=>r.result.createObjectStore(IDBS);r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)}catch(e){rej(e)}}),3000).catch(e=>{idbOK=false;idbP=null;throw e});return idbP}
+async function idbGet(){const db=await idb();return withTimeout(new Promise((res,rej)=>{const q=db.transaction(IDBS,"readonly").objectStore(IDBS).get("state");q.onsuccess=()=>res(q.result||null);q.onerror=()=>rej(q.error)}),3000)}
+async function idbWrite(){try{const db=await idb(),data=JSON.parse(JSON.stringify({profile:S.profile,tx:S.tx}));
+  await withTimeout(new Promise((res,rej)=>{const t=db.transaction(IDBS,"readwrite");t.objectStore(IDBS).put(data,"state");t.oncomplete=res;t.onerror=()=>rej(t.error);t.onabort=()=>rej(t.error)}),3000);idbOK=true}catch(e){idbOK=false}setSync()}
+function idbSave(now){clearTimeout(idbT);if(now)return idbWrite();idbT=setTimeout(idbWrite,150)}
+function askPersist(){if(askedPersist)return;askedPersist=true;try{const st=navigator.storage;if(!st||!st.persist){persistState="not supported";return}
+  st.persisted().then(p=>p||st.persist()).then(r=>{persistState=r?"yes":"no"}).catch(()=>{persistState="unknown"})}catch(_){persistState="unknown"}}
+function saveLocal(){if(S.sample)return;try{localStorage.setItem(LS,JSON.stringify({profile:S.profile,tx:S.tx,pending:dirty.profile||dirty.months.size>0}));lsOK=true;if(!DB)lastSaved=Date.now()}catch(e){lsOK=false}
+  idbSave();askPersist();
+  if(!(dirty.profile||dirty.months.size))S.localPending=false}
+
+/* cloud: private per-viewer docs under data/users/<id>/ */
+/* Every change stamps profile.updated; the newest copy wins on load, and a live subscription keeps
+   other open copies of the app current so an old copy can't overwrite newer data. */
+let DL=null,DB=null,UID=null,flushT=null,flushing=false,syncErr=false,pendingAdopt=null,lastErr=null,lastSaved=0,retries=0,dbState="connecting";const dirty={profile:false,months:new Set()};
+const withTO=(p,ms=9000)=>Promise.race([p,new Promise((_,r)=>setTimeout(()=>r({code:"timeout",message:"The save didn't finish in time."}),ms))]);
+function markDirty(month){if(S.sample)return;S.profile.updated=Date.now();dirty.profile=true;if(month)dirty.months.add(month);saveLocal();setSync();clearTimeout(flushT);flushT=setTimeout(flush,250)}
+async function flush(){if(!DB||!UID||flushing||S.sample)return;flushing=true;clearTimeout(flushT);setSync();
+  const ms=[...dirty.months],prof=dirty.profile;
+  try{
+    for(const m of ms){await withTO(DB.doc(`data/users/${UID}/tx-${m}`).set({items:S.tx[m]||[]}));dirty.months.delete(m)}
+    if(prof||dirty.profile){dirty.profile=false;
+      try{await withTO(DB.doc(`data/users/${UID}/profile`).set({profile:JSON.parse(JSON.stringify(S.profile))}))}catch(e){dirty.profile=true;throw e}}
+    syncErr=false;lastErr=null;retries=0;lastSaved=Date.now();saveLocal();
+  }catch(e){
+    lastErr={code:(e&&e.code)||"error",message:(e&&e.message)||String(e),at:Date.now()};
+    // Account storage refused this viewer (shared link, view-only, signed out): keep everything on the phone instead.
+    if(e&&["invalid_argument","not_granted","revoked","capability_disabled","capability_removed"].includes(e.code)){
+      DB=null;dbState="account refused saves ("+e.code+")";syncErr=false;dirty.profile=false;dirty.months.clear();saveLocal();setTimeout(render,0);return}
+    syncErr=true;
+    if(e&&e.code==="quota_exceeded")toast("Storage is full. Older months need clearing out.");
+    else if(retries<6){retries++;setTimeout(()=>flush(),Math.min(30000,1500*2**retries)+Math.random()*1000)}
+    else toast("Couldn't save to your account. Tap the save status for options.");
+  }finally{flushing=false;setSync();if(!syncErr&&(dirty.profile||dirty.months.size))flushT=setTimeout(flush,100)}
+}
+function setSync(){const el=document.getElementById("sync");if(!el)return;let t,bad=false;
+  if(S.sample)t="sample";
+  else if(!DB){if(dbState==="connecting")t="connecting…";else if(IN_CLAUDE()){t="not synced";bad=true}else if(lsOK||idbOK)t="on this phone";else{t="not saved";bad=true}}
+  else if(dirty.profile||dirty.months.size||flushing){t=syncErr?"retrying…":"saving…";bad=syncErr}
+  else if(syncErr){t="not saved";bad=true}else t="saved";
+  el.textContent=t;el.classList.toggle("bad",bad)}
+/* Stored snapshots arrive frozen (read-only), so everything loaded is deep-copied before the app edits it. */
+const thaw=o=>JSON.parse(JSON.stringify(o??null));
+async function loadMonths(p){const tx={};for(const m of (p.months||[]).slice(-14)){const ms=await DB.doc(`data/users/${UID}/tx-${m}`).get();tx[m]=ms.exists?thaw(ms.data().items||[]):[]}return tx}
+async function adopt(p){p=thaw(p);const tx=await loadMonths(p);S.profile=Object.assign(blankProfile(),p);S.profile.setup=Object.assign(blankProfile().setup,p.setup);S.tx=tx;S.sample=false;saveLocal();
+  const a=document.activeElement;if(a&&a.matches&&a.matches("input,select")&&!document.getElementById("sheet").contains(a)){pendingAdopt=true;return}afterLoad()}
+async function connect(){
+  try{
+    const c=window.claude;if(!c||!c.use){dbState="this phone only";setSync();return}
+    c.use("downloads").then(d=>{DL=d}).catch(()=>{});
+    const [db,user]=await Promise.all([c.use("db"),c.use("user")]);if(!db||!user){dbState=!db?"not signed in (no account storage)":"user unavailable";setSync();render();return}
+    const id=await user.id();if(!id){dbState="not signed in";setSync();render();return}DB=db;UID=id;dbState="ok";
+    const ref=DB.doc(`data/users/${UID}/profile`);const snap=await withTO(ref.get());const remote=snap.exists?snap.data().profile:null;
+    // Unsaved local changes always win over the server copy; otherwise the newest copy wins.
+    if(remote&&(S.sample||(!S.localPending&&(remote.updated||0)>=(S.profile.updated||0))))await adopt(remote);
+    else if(!S.sample){dirty.profile=true;Object.keys(S.tx).forEach(m=>dirty.months.add(m));await flush()}
+    ref.onSnapshot(sn=>{if(!sn.exists||sn.metadata.hasPendingWrites)return;const r=sn.data().profile;
+      if(r&&(r.updated||0)>(S.profile.updated||0)&&!dirty.profile&&!flushing)adopt(r)},()=>{});
+    setSync();
+  }catch(e){DB=null;dbState="error: "+((e&&e.code)||e);lastErr={code:(e&&e.code)||"error",message:(e&&e.message)||String(e),at:Date.now()};setSync()}
+}
+document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="hidden")flush()});
+addEventListener("pagehide",()=>{if(!S.sample)idbSave(true);flush()});
+document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="hidden"&&!S.sample)idbSave(true)});
+document.addEventListener("focusout",()=>{if(pendingAdopt){setTimeout(()=>{const a=document.activeElement;if(!(a&&a.matches&&a.matches("input,select"))){pendingAdopt=false;afterLoad()}},50)}});
+
+/* ===== derived ===== */
+const P=()=>S.profile, SU=()=>S.profile.setup;
+const allTx=()=>Object.values(S.tx).flat();
+function weekTx(){const ws=weekStart(today()),we=addDays(ws,6);return allTx().filter(t=>t.d>=ws&&t.d<=we)}
+function thisWeekHours(){const k=weekStart(today());const v=P().hoursByWeek[k];return v===undefined?(+SU().hours||0):v}
+function goalMonthly(g){const left=Math.max(0,(+g.target||0)-(+g.saved||0));if(!left)return 0;const m=Math.max(1,monthsUntil(g.date));return left/m}
+function budget(){
+  const s=SU(),h=thisWeekHours(),jobNet=weeklyNet(s,h),ws=weekStart(today()),we=addDays(ws,6);
+  const gigWeek=(P().gigs||[]).filter(g=>g.dest==="week"&&g.d>=ws&&g.d<=we).reduce((a,g)=>a+g.kept,0),net=jobNet+gigWeek;
+  const W=12/52,needs=essTotal(s)*W;
+  const live=P().debts.filter(d=>+d.balance-(+d.fund||0)>0);
+  const debtM=live.reduce((a,d)=>{const pm=promoMonths(d);return a+(pm&&d.defer?0:(+d.min||0))+prepMonthly(d)},0)+(live.length?(+P().extra||0):0);
+  const saveM=P().goals.reduce((a,g)=>a+goalMonthly(g),0);
+  const debt=debtM*W,save=saveM*W,fun=Math.max(0,net-needs-debt-save);
+  const wantSpent=weekTx().filter(t=>catType(t.c)==="want").reduce((a,t)=>a+t.a,0);
+  return{net,needs,debt,save,fun,wantSpent,left:fun-wantSpent,shortfall:net-needs-debt-save,h,rh:h>0?jobNet/h:0,jobNet,gigWeek};
+}
+function streakInfo(){const set=new Set([...P().logDays,...P().frozenDays]);let d=today(),n=0;if(!set.has(d))d=addDays(d,-1);while(set.has(d)){n++;d=addDays(d,-1)}return{n,todayDone:P().logDays.includes(today())}}
+
+/* ===== effects ===== */
+let toastT;function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove("show"),2600)}
+function stamp(text,color){const s=document.getElementById("stamp");s.textContent=text;s.style.color=color;s.classList.remove("go");void s.offsetWidth;s.classList.add("go")}
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+function confetti(n=110){if(reduce)return;const cv=document.getElementById("confetti"),ctx=cv.getContext("2d"),dpr=devicePixelRatio||1;
+  cv.width=innerWidth*dpr;cv.height=innerHeight*dpr;ctx.scale(dpr,dpr);
+  const cs=getComputedStyle(document.documentElement),cols=["--accent","--save","--need","--want","--debt"].map(v=>cs.getPropertyValue(v).trim());
+  const ps=Array.from({length:n},()=>({x:innerWidth/2+(Math.random()-.5)*80,y:innerHeight*.35,vx:(Math.random()-.5)*11,vy:-Math.random()*13-4,r:Math.random()*6+4,a:Math.random()*6,va:(Math.random()-.5)*.4,c:cols[Math.random()*cols.length|0],life:0}));
+  let f=0;(function tick(){ctx.clearRect(0,0,innerWidth,innerHeight);f++;
+    for(const p of ps){p.vy+=.38;p.vx*=.99;p.x+=p.vx;p.y+=p.vy;p.a+=p.va;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.a);ctx.fillStyle=p.c;ctx.globalAlpha=Math.max(0,1-f/120);ctx.fillRect(-p.r/2,-p.r/4,p.r,p.r/2);ctx.restore()}
+    if(f<120)requestAnimationFrame(tick);else ctx.clearRect(0,0,innerWidth,innerHeight)})()}
+const shown={};
+function countUps(root){root.querySelectorAll("[data-count]").forEach(el=>{const key=el.dataset.key,to=+el.dataset.count,fmt=el.dataset.fmt||"money";
+  const from=shown[key]!==undefined?shown[key]:(reduce?to:to*0.6);shown[key]=to;const f=v=>fmt==="money"?money(v):fmt==="money0"?money0(v):fmt==="hrs"?hrs(v):fmt==="rate"?money(v):Math.round(v);
+  if(reduce||from===to){el.textContent=f(to);return}const t0=performance.now(),d=700;
+  (function step(t){const k=Math.min(1,(t-t0)/d),e=1-Math.pow(1-k,3);el.textContent=f(from+(to-from)*e);if(k<1)requestAnimationFrame(step)})(t0)})}
+
+/* ===== badges & streak ===== */
+function award(key,label){if(P().badges[key])return false;P().badges[key]=Date.now();setTimeout(()=>{toast("Badge earned: "+label);confetti(140)},500);return true}
+function touchDay(d){const p=P();if(!p.logDays.includes(d)){p.logDays.push(d);p.logDays=p.logDays.sort().slice(-400)}
+  const s=streakInfo().n;if(s>=7&&s%7===0&&p.freezeAwardAt!==s&&p.freezes<2){p.freezes++;p.freezeAwardAt=s;setTimeout(()=>toast("Streak freeze earned. It covers one missed day."),1200)}
+  if(s>=7)award("s7","7-day streak");if(s>=30)award("s30","30-day streak")}
+function autoFreeze(){const p=P(),t=today(),y=addDays(t,-1),yy=addDays(t,-2);
+  const set=new Set([...p.logDays,...p.frozenDays]);
+  if(!set.has(y)&&set.has(yy)&&p.freezes>0){p.frozenDays.push(y);p.frozenDays=p.frozenDays.slice(-60);p.freezes--;markDirty();setTimeout(()=>toast("Streak freeze used for yesterday."),800)}}
+
+/* ===== render ===== */
+const main=document.getElementById("main");
+function render(){
+  document.querySelectorAll("#tabs [data-tab]").forEach(b=>b.classList.toggle("on",b.dataset.tab===S.tab));
+  const sb=document.getElementById("sampleBar");
+  sb.innerHTML=storageBanner()+(S.sample?`<div class="sample-bar"><span>Sample numbers. Enter yours to start.</span><span class="btns" style="flex:none"><button class="btn sm accent" data-act="go-setup">Set up</button>${IN_CLAUDE()?"":`<button class="btn sm ghost" data-act="status">Restore</button>`}</span></div>`:"");
+  const st=streakInfo();document.getElementById("streakCt").textContent=st.n;document.getElementById("streak").classList.toggle("on",st.n>0);
+  document.getElementById("streakFz").textContent=P().freezes?`+${P().freezes}❄`:"";
+  setSync();
+  main.innerHTML=({today:vToday,debt:vDebt,goals:vGoals,setup:vSetup})[S.tab]();
+  main.classList.remove("fade-in");void main.offsetWidth;main.classList.add("fade-in");
+  countUps(main);
+  if(S.tab==="setup")updateTaxPreview();
+}
+
+function vToday(){
+  const b=budget(),s=SU(),over=b.left<0,used=b.fun>0?Math.min(1,b.wantSpent/b.fun):(b.wantSpent>0?1:0);
+  const C=2*Math.PI*40,off=C*(1-used),st=streakInfo();
+  const tot=Math.max(b.net,1),parts=[["Needs",b.needs,"--need"],["Debt",b.debt,"--debt"],["Savings",b.save,"--save"],["Fun money",b.fun,"--accent"]];
+  const wk=weekTx(),need=wk.filter(t=>catType(t.c)==="need").reduce((a,t)=>a+t.a,0),want=b.wantSpent;
+  const byCat={};wk.filter(t=>catType(t.c)==="want").forEach(t=>byCat[t.c]=(byCat[t.c]||0)+t.a);
+  const top=Object.entries(byCat).sort((a,b)=>b[1]-a[1]).slice(0,4);const maxC=Math.max(1,...top.map(x=>x[1]));
+  const recent=[...allTx(),...(P().gigs||[]).map(g=>({...g,gig:1}))].sort((a,b)=>b.d.localeCompare(a.d)||(b.ts||0)-(a.ts||0)).slice(0,12);
+  const goal=ftDest();
+  const ws=weekStart(today());
+  return `
+  <section class="card timecard">
+    <div class="eyebrow">Week of ${parse(ws).toLocaleDateString("en-US",{month:"short",day:"numeric"})} · fun money left</div>
+    <div class="hero" style="margin-top:8px">
+      <div style="min-width:0">
+        <div class="big ${over?"over":""}" data-count="${b.left}" data-key="left">${money(b.left)}</div>
+        <div class="hrs">${over?"Over by":"≈"} <span data-count="${Math.abs(b.left)/(b.rh||1)}" data-key="lefth" data-fmt="hrs">${hrs(Math.abs(b.left)/(b.rh||1))}</span> of work</div>
+      </div>
+      <svg class="ring" viewBox="0 0 100 100" role="img" aria-label="${Math.round(used*100)} percent of fun money used">
+        <circle class="trk" cx="50" cy="50" r="40"/>
+        <circle class="val ${over?"over":""}" cx="50" cy="50" r="40" stroke-dasharray="${C}" stroke-dashoffset="${C}" data-off="${off}"/>
+        <text x="50" y="46">${Math.round(used*100)}%</text><text class="lbl" x="50" y="63">USED</text>
+      </svg>
+    </div>
+    <div class="split" aria-hidden="true">${parts.map(([,v,c])=>`<i style="flex-grow:${Math.max(0,v)/tot};background:var(${c})"></i>`).join("")}</div>
+    <div class="legend">${parts.map(([n,v,c])=>`<span><span class="sw" style="background:var(${c})"></span>${n}<b>${money0(v)}</b></span>`).join("")}</div>
+    ${b.shortfall<0?`<p class="small" style="color:var(--want);margin:10px 0 0;font-weight:600">This week's pay is ${money0(-b.shortfall)} short of your bills, debt and savings plan.</p>`:""}
+    <p class="hint" style="margin:10px 0 0">Take-home this week ${money(b.jobNet)} from ${b.h} hours${b.gigWeek>0?` + ${money(b.gigWeek)} side income`:""}.</p>
+  </section>
+
+  ${vPlan()}
+
+  ${st.todayDone?"":`<section class="card nudge">
+    <div class="t"><strong>Nothing logged today</strong><span class="small muted">Log a purchase or mark a no-spend day to keep your ${st.n?st.n+"-day ":""}streak.</span></div>
+    <div class="btns" style="flex-direction:column"><button class="btn sm primary" data-act="open-add">Log</button><button class="btn sm ghost" data-act="nospend">No spend</button></div>
+  </section>`}
+
+  <section class="card wage">
+    <div style="min-width:0"><div class="eyebrow">Your real wage</div>
+      <div class="rate"><span data-count="${b.rh}" data-key="rh" data-fmt="rate">${money(b.rh)}</span><small>/hr</small></div>
+      <div class="hint">${money(+s.wage||0)}/hr before taxes${s.useStub&&+s.stubGross>0?" · paystub-calibrated":""}</div></div>
+    <div class="stepper" role="group" aria-label="Hours this week"><button data-act="hrs" data-d="-1" aria-label="Fewer hours">−</button><div class="v">${thisWeekHours()}<small>hrs/wk</small></div><button data-act="hrs" data-d="1" aria-label="More hours">+</button></div>
+  </section>
+
+  <section class="card funtax">
+    <div class="coin">%</div>
+    <div style="min-width:0"><div class="eyebrow">Fun tax · ${s.funTaxPct}% of wants</div>
+      <div class="amt" data-count="${P().funTaxOwed}" data-key="fto">${money(P().funTaxOwed)}</div>
+      <div class="hint">${goal?`Move it to ${esc(goal.name)}${goal.kind==="debt"?" (debt fund)":""}`:"Add a goal to send it somewhere"} · ${money0(P().funTaxPaid)} moved so far</div></div>
+    <button class="btn sm save" data-act="paytax" ${P().funTaxOwed>0.004&&goal?"":"disabled style='opacity:.45'"}>Moved it</button>
+  </section>
+
+  <section class="card">
+    <div class="row"><h2>This week</h2><span class="hint">${wk.length} entries</span></div>
+    <div class="bars">
+      <div class="bar"><span>Needs</span><div class="tr"><div class="fl" style="width:${need+want?need/(need+want)*100:0}%;background:var(--need)"></div></div><span class="v">${money0(need)}</span></div>
+      <div class="bar"><span>Wants</span><div class="tr"><div class="fl" style="width:${need+want?want/(need+want)*100:0}%;background:var(--want)"></div></div><span class="v">${money0(want)}</span></div>
+      ${top.map(([c,v])=>`<div class="bar small muted"><span>· ${catName(c)}</span><div class="tr"><div class="fl" style="width:${v/maxC*100}%;background:var(--want);opacity:.55"></div></div><span class="v">${hrs(v/(b.rh||1))}</span></div>`).join("")}
+    </div>
+    ${want>0?`<p class="small" style="margin:12px 0 0">Wants cost you <b class="mono">${hrs(want/(b.rh||1))}</b> of work this week.</p>`:""}
+  </section>
+
+  ${vEssMonth()}
+
+  ${vGigs()}
+
+  <section class="card">
+    <div class="row"><h2>Recent</h2></div>
+    <div class="tx" style="margin-top:6px">${recent.length?recent.map(t=>t.gig?gigRow(t):txRow(t)).join(""):`<div class="empty">No purchases yet. Tap + to log one.</div>`}</div>
+  </section>
+
+  <section class="card">
+    <h2>Badges</h2>
+    <div class="badges">${BADGES.map(([k,ic,l])=>`<div class="badge ${P().badges[k]?"got":""}"><div class="md">${ic}</div>${l}</div>`).join("")}</div>
+  </section>`;
+}
+/* pay-by-date planner */
+function tgtMax(){const p=P(),cur=simulate(simDebts(p.debts),p.strategy,p.extra);return Math.max(36,Math.min(240,(cur.stuck?120:cur.months)+12))}
+function tgtMonths(){const p=P();if(p.targetDate){const m=monthsUntil(p.targetDate);if(m>=1)return Math.min(m,tgtMax())}
+  const cur=simulate(simDebts(p.debts),p.strategy,p.extra);return Math.max(1,Math.min(cur.stuck?24:Math.max(1,cur.months-6),tgtMax()))}
+function tgtHTML(months){
+  const p=P(),sds=simDebts(p.debts),live=p.debts.filter(d=>+d.balance-(+d.fund||0)>0);
+  if(!live.length)return `<p class="hint">No balances left to plan.</p>`;
+  const {extra,sim}=requiredExtra(sds,p.strategy,months),cur=simulate(sds,p.strategy,p.extra);
+  const mins=live.reduce((a,d)=>a+(promoMonths(d)&&d.defer?0:+d.min),0),prep=live.reduce((a,d)=>a+prepMonthly(d),0),total=mins+extra+prep;
+  const per=PERIODS[SU().payFreq]||26,rh=realHourly(SU(),thisWeekHours())||0,weekly=total*12/52;
+  const b=budget(),freeNow=b.fun+b.debt,over=weekly-freeNow;
+  const ord={};sim&&Object.entries(sim.payoff).forEach(([id,m])=>ord[id]=m);
+  const saved=cur.stuck?null:cur.interest-sim.interest;
+  return `<div class="tgt-big"><span class="mono" data-live="1">${money0(total)}</span><small>/month to be debt-free by ${fmtMonth(addMonths(months))}</small></div>
+    <div class="kpis" style="margin-top:10px">
+      <div class="kpi"><div class="eyebrow">Per paycheck</div><div class="v" style="font-size:19px">${money0(total*12/per)}</div></div>
+      <div class="kpi"><div class="eyebrow">Work / week</div><div class="v" style="font-size:19px">${rh?hrs(weekly/rh):"—"}</div></div>
+      <div class="kpi"><div class="eyebrow">Extra over mins</div><div class="v" style="font-size:19px">${money0(extra)}</div></div>
+      <div class="kpi"><div class="eyebrow">Interest paid</div><div class="v" style="font-size:19px">${money0(sim.interest)}</div></div>
+    </div>
+    ${saved!==null&&Math.abs(saved)>=1?`<p class="small" style="margin:10px 0 0;font-weight:600;color:${saved>0?"var(--save)":"var(--want)"}">${saved>0?"Saves":"Costs"} ${money0(Math.abs(saved))} in interest vs your current plan.</p>`:""}
+    ${over>1?`<p class="small" style="margin:6px 0 0;font-weight:600;color:var(--want)">That's ${money0(over)}/week more than your pay leaves after needs and savings.</p>`:`<p class="hint" style="margin:6px 0 0">Leaves ${money0(-over)}/week of fun money.</p>`}
+    <div class="stack" style="gap:0;margin-top:8px">${live.map(d=>`<div class="plan-row" style="grid-template-columns:1fr auto"><b>${esc(d.name)}</b><span>${ord[d.id]?"gone "+fmtMonth(addMonths(ord[d.id])):"—"}</span></div>`).join("")}</div>
+    <button class="btn primary block" style="margin-top:12px" data-act="usetgt" data-m="${months}" data-x="${extra}">${extra===Math.round(+p.extra||0)?"This is your current plan":`Use this plan (${money0(extra)} extra/month)`}</button>`;
+}
+let tgtRaf=0;
+function vPlan(){
+  const p=P(),live=p.debts.filter(d=>+d.balance>0),goals=p.goals;
+  if(!live.length&&!goals.length)return `<section class="card"><h2>Payoff &amp; goals</h2><p class="hint" style="margin:6px 0 10px">Add your debts and savings goals to see the date you'll be done.</p><div class="btns"><button class="btn sm primary" data-tab="debt">Add a debt</button><button class="btn sm ghost" data-tab="goals">Add a goal</button></div></section>`;
+  const sim=simulate(simDebts(p.debts),p.strategy,p.extra);
+  const head=live.length?(sim.stuck?`<h2 style="color:var(--want)">Debt plan doesn't cover interest</h2>`:`<div class="eyebrow">Debt-free by</div><h2 style="font-size:28px;font-weight:800">${fmtMonth(addMonths(sim.months))}</h2>`):`<div class="eyebrow">Debt</div><h2>None left</h2>`;
+  const drows=live.map(d=>{const start=Math.max(+d.start||+d.balance,+d.balance),pct=start?(1-(+d.balance-(+d.fund||0))/start)*100:0,pm=sim.payoff[d.id];
+    return `<div class="plan-row"><b>${esc(d.name)}</b><span>${pm?"gone "+fmtMonth(addMonths(pm)):(+d.fund>=+d.balance?"fully set aside":"—")}</span><div class="meter"><i style="width:${Math.max(2,pct)}%"></i></div></div>`}).join("");
+  const grows=goals.map(g=>{const pct=Math.min(100,(+g.saved/(+g.target||1))*100);
+    return `<div class="plan-row"><b>${esc(g.name)}</b><span>${pct>=100?"done":Math.round(pct)+"% · "+fmtMonth(parse(g.date))}</span><div class="meter"><i style="width:${Math.max(2,pct)}%;background:var(--save)"></i></div></div>`}).join("");
+  return `<section class="card"><div class="row" style="align-items:flex-start"><div>${head}</div><button class="btn sm ghost" data-tab="debt">Plan</button></div>
+    <div style="margin-top:8px">${drows}${grows}</div></section>`;
+}
+const IN_CLAUDE=()=>typeof window.claude!=="undefined";
+const IS_IOS=/iPhone|iPad|iPod/.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
+const STANDALONE=(()=>{try{return navigator.standalone===true||matchMedia("(display-mode: standalone)").matches}catch(_){return false}})();
+const runningAs=()=>IN_CLAUDE()?"Claude":STANDALONE?"Home Screen app":IS_IOS?"Safari tab":"Browser tab";
+const hasData=()=>!S.sample&&(+SU().wage>0||P().debts.length||P().goals.length||allTx().length);
+function backupText(){return JSON.stringify({clocked:1,saved:new Date().toISOString(),profile:S.profile,tx:S.tx})}
+function markBackup(msg){P().lastBackup=Date.now();markDirty();render();toast(msg||"Backup saved.")}
+async function saveBackupFile(){const txt=backupText(),name=`clocked-backup-${today()}.json`;
+  if(IN_CLAUDE()){if(!DL){toast("Saving files isn't available here. Use Copy backup.");return}
+    try{await DL.save({filename:name,data:txt});markBackup("Backup saved. Keep it in Files or iCloud Drive.")}catch(e){if(e&&e.code!=="declined")toast("Couldn't save the file. Use Copy backup.")}return}
+  try{const f=new File([txt],name,{type:"application/json"});
+    if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],title:"Clocked backup"});markBackup("Backup saved. Keep it in Files or iCloud Drive.");return}}
+  catch(e){if(e&&e.name==="AbortError")return}
+  try{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([txt],{type:"application/json"}));a.download=name;document.body.appendChild(a);a.click();
+    setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1500);markBackup("Backup saved to Downloads.")}catch(e){toast("Couldn't save a file here. Use Copy backup instead.")}}
+function restoreFrom(txt){let j;try{j=JSON.parse(txt)}catch(_){toast("That doesn't look like a Clocked backup.");return false}
+  if(!j||!j.profile||!j.profile.setup){toast("That doesn't look like a Clocked backup.");return false}
+  S.profile=Object.assign(blankProfile(),thaw(j.profile));S.profile.setup=Object.assign(blankProfile().setup,j.profile.setup);S.tx=thaw(j.tx||{});S.sample=false;
+  Object.keys(S.tx).forEach(m=>dirty.months.add(m));markDirty();closeAdd();S.tab="today";render();confetti(80);toast("Restored.");return true}
+let warnHidden=false;try{warnHidden=+localStorage.getItem("clocked.warnHide")>Date.now()}catch(_){}
+function storageBanner(){
+  if(IN_CLAUDE()){if(DB||dbState==="connecting")return "";
+    return `<div class="sample-bar warn"><span><b>Not connected to your Claude account.</b> What you enter here stays only in this window, and iPhone can clear it. Open Clocked inside the Claude app, or sign in to Claude in this window. Back up first to move what you've entered.</span><button class="btn sm primary" data-act="status" style="flex:none">Back up</button></div>`}
+  if(lsOK===false&&idbOK===false)return `<div class="sample-bar warn"><span>This browser isn't keeping your data. Private Browsing turns saving off. Open Clocked in a normal Safari window or from your Home Screen.</span></div>`;
+  if(S.sample)return "";
+  if(IS_IOS&&!STANDALONE&&!warnHidden)return `<div class="sample-bar warn"><span>You're in a Safari tab, and Safari can clear website data. Save a backup, add Clocked to your Home Screen, then restore the backup there.</span><span class="btns" style="flex:none;flex-direction:column"><button class="btn sm primary" data-act="backupfile">Save backup</button><button class="btn sm ghost" data-act="hidewarn">Later</button></span></div>`;
+  const lb=P().lastBackup||0;if(hasData()&&Date.now()-lb>7*864e5)return `<div class="sample-bar"><span>${lb?"It's been over a week since your last backup.":"Save a backup file so your data survives anything."}</span><button class="btn sm accent" data-act="backupfile">Back up</button></div>`;
+  return ""}
+function openStatus(){
+  const sh=document.getElementById("sheet"),sc=document.getElementById("scrim");
+  const when=t=>t?new Date(t).toLocaleTimeString("en-US",{hour:"numeric",minute:"2-digit"}):"not yet";
+  sh.innerHTML=`<div class="grab"></div><div class="stack">
+    <h2>Saving</h2>
+    <div class="tax">
+      <div class="tl"><span>Saving to</span><b>${S.sample?"Nothing (sample)":DB?"Your Claude account":"This phone"}</b></div>
+      <div class="tl"><span>Account storage</span><b>${esc(dbState)}</b></div>
+      <div class="tl"><span>Running as</span><b>${runningAs()}</b></div>
+      <div class="tl"><span>Copies on this phone</span><b>${(lsOK?1:0)+(idbOK?1:0)} of 2</b></div>
+      ${IN_CLAUDE()?"":`<div class="tl"><span>Protected from cleanup</span><b>${esc(persistState)}</b></div>`}
+      <div class="tl"><span>Last backup file</span><b>${P().lastBackup?new Date(P().lastBackup).toLocaleDateString("en-US",{month:"short",day:"numeric"}):"never"}</b></div>
+      <div class="tl"><span>Last saved</span><b>${when(lastSaved)}</b></div>
+      <div class="tl"><span>Unsaved changes</span><b>${dirty.profile||dirty.months.size?"yes":"no"}</b></div>
+      ${lastErr?`<div class="tl"><span>Last problem</span><b style="color:var(--want)">${esc(lastErr.code)}</b></div><p class="hint" style="margin:4px 0 0">${esc(lastErr.message)}</p>`:""}
+    </div>
+    <div class="btns"><button class="btn primary" data-act="savenow">Save now</button>${IN_CLAUDE()&&!DL?"":`<button class="btn save" data-act="backupfile">Save backup file</button>`}<button class="btn ghost" data-act="copybackup">Copy backup</button></div>
+    <div class="field"><label for="restoreFile">Restore from a backup file</label><input type="file" id="restoreFile" style="font-size:14px"></div>
+    <div class="field"><label for="restoreTxt">Or paste a copied backup</label><textarea id="restoreTxt" placeholder="Paste a backup here"></textarea></div>
+    <div class="btns"><button class="btn ghost" data-act="restore">Restore</button><button class="btn ghost" data-act="close-add" style="margin-left:auto">Close</button></div>
+  </div>`;
+  sc.hidden=false;sh.hidden=false;requestAnimationFrame(()=>{sc.classList.add("show");sh.classList.add("show")})}
+function txRow(t){const ty=catType(t.c),rh=realHourly(SU(),thisWeekHours())||1;
+  return `<div class="txr"><div class="tag ${ty}">${ty==="need"?"NEED":"WANT"}</div>
+  <div class="nm"><b>${esc(t.n||catName(t.c))}</b><span>${catName(t.c)} · ${fmtDay(t.d)}</span></div>
+  <div class="r"><div><span class="a">${money(t.a)}</span><span class="h">${hrs(t.a/rh)}</span></div><button class="x" data-act="deltx" data-id="${t.id}" aria-label="Delete">×</button></div></div>`}
+
+function vDebt(){
+  const p=P(),ds=p.debts,live=ds.filter(d=>+d.balance>0);
+  const sds=simDebts(ds),sim=simulate(sds,p.strategy,p.extra),base=baselineInterest(sds);
+  const total=live.reduce((a,d)=>a+ +d.balance,0),saved=Math.max(0,base.interest-sim.interest);
+  const freeDate=sim.months?fmtMonth(addMonths(sim.months)):"—";
+  const ord=payoffOrder(sds,p.strategy);const idx={};ord.forEach((d,i)=>idx[d.id]=i+1);
+  const minSum=live.reduce((a,d)=>a+(promoMonths(d)&&d.defer?0:+d.min),0),prepSum=live.reduce((a,d)=>a+prepMonthly(d),0),perChk=12/(PERIODS[SU().payFreq]||26);
+  return `
+  <section class="card timecard">
+    <div class="eyebrow">Debt-free by</div>
+    <h2 style="font-size:34px;font-weight:800;margin-top:4px">${live.length?(sim.stuck?"Not on this plan":freeDate):"Debt-free"}</h2>
+    ${sim.stuck?`<p class="small" style="color:var(--want);font-weight:600;margin:6px 0 0">Payments don't cover the interest. Raise a minimum or add extra.</p>`:""}
+    <div class="kpis" style="margin-top:14px">
+      <div class="kpi"><div class="eyebrow">Total owed</div><div class="v" data-count="${total}" data-key="dtot" data-fmt="money0">${money0(total)}</div></div>
+      <div class="kpi"><div class="eyebrow">Interest left</div>${sim.stuck?`<div class="v">—</div>`:`<div class="v" data-count="${sim.interest}" data-key="dint" data-fmt="money0">${money0(sim.interest)}</div>`}</div>
+      <div class="kpi"><div class="eyebrow">Months to go</div><div class="v">${sim.stuck?"—":(live.length?sim.months:0)}</div></div>
+      <div class="kpi"><div class="eyebrow">Saved vs minimums</div>${sim.stuck||base.stuck?`<div class="v good">—</div>`:`<div class="v good" data-count="${saved}" data-key="dsav" data-fmt="money0">${money0(saved)}</div>`}</div>
+    </div>
+  </section>
+
+  <section class="card stack">
+    <h2>Payoff plan</h2>
+    <div class="seg" role="group" aria-label="Strategy"><button class="${p.strategy==="avalanche"?"on":""}" data-act="strat" data-v="avalanche">Avalanche</button><button class="${p.strategy==="snowball"?"on":""}" data-act="strat" data-v="snowball">Snowball</button></div>
+    <p class="hint" style="margin:0">${p.strategy==="avalanche"?"Highest interest first. Costs the least overall.":"Smallest balance first. Faster early wins."}</p>
+    <div class="seg" role="group" aria-label="Plan by"><button class="${p.payMode!=="date"?"on":""}" data-act="paymode" data-v="amount">By amount</button><button class="${p.payMode==="date"?"on":""}" data-act="paymode" data-v="date">By date</button></div>
+    ${p.payMode==="date"?`<div>
+      <div class="row"><label for="tgtM" class="small" style="font-weight:700">Debt-free by</label><b class="mono" id="tgtV">${fmtMonth(addMonths(tgtMonths()))}</b></div>
+      <input type="range" class="range" id="tgtM" min="1" max="${tgtMax()}" step="1" value="${tgtMonths()}">
+      <div class="row hint"><span>${fmtMonth(addMonths(1))}</span><span>${fmtMonth(addMonths(tgtMax()))}</span></div>
+      <div id="tgtOut" class="tgt">${tgtHTML(tgtMonths())}</div>
+    </div>`:`<div><div class="row"><label for="extra" class="small" style="font-weight:700">Extra each month</label><b class="mono" id="extraV">${money0(+p.extra||0)}</b></div>
+    <input type="range" class="range" id="extra" min="0" max="${Math.max(1000,Math.ceil((+p.extra||0)/100)*100)}" step="10" value="${+p.extra||0}">
+    <p class="hint" style="margin:0">Total debt payment: ${money0(minSum+(+p.extra||0))}/month${prepSum?` + ${money0(prepSum)}/month set aside for 0% debts`:""}</p></div>`}
+  </section>
+
+  ${ds.map(d=>{const paid=!(+d.balance>0),start=Math.max(+d.start||+d.balance,+d.balance),pct=start?(+d.balance/start)*100:0,pm=sim.payoff[d.id];
+    const promo=promoMonths(d),fund=+d.fund||0,tgt=prepTarget(d),fpct=tgt?Math.min(100,fund/tgt*100):0,isFt=SU().funTaxGoal==="debt:"+d.id;
+    const fundBlock=paid||(!promo&&!fund)?"":`<div class="fund">
+        <div class="row small"><b>${promo?`Set aside before ${parse(d.intStart).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"})}`:"Set aside, ready to pay"}</b><span class="mono">${money0(fund)} / ${money0(tgt)}</span></div>
+        <div class="meter"><i style="width:${Math.max(fund?2:0,fpct)}%;background:var(--save)"></i></div>
+        ${promo?`<div class="hint">${fund>=tgt?"Fully covered. Apply it before interest starts.":`${money0(prepMonthly(d)*perChk)} per paycheck gets you there`}${isFt?" · fun tax goes here":""}</div>`:`<div class="hint" style="color:var(--want)">Interest has started. Apply your set-aside money now.</div>`}
+        <div class="inline"><form novalidate class="inline" data-form="fund" data-id="${d.id}" style="flex:1"><input id="fund-${d.id}" inputmode="decimal" placeholder="Set aside $" aria-label="Amount to set aside for ${esc(d.name)}"><button class="btn sm save">Add</button></form></div>
+        <div class="btns">${fund>0?`<button class="btn sm primary" data-act="applyfund" data-id="${d.id}">Apply ${money0(fund)} to balance</button>`:""}${promo&&!isFt?`<button class="btn sm ghost" data-act="ftdebt" data-id="${d.id}">Send fun tax here</button>`:""}</div>
+      </div>`;
+    return `<section class="card debt ${paid?"paid":""}">
+      <div class="hd"><div class="ord">${paid?"✓":(idx[d.id]||"·")}</div><div style="min-width:0"><h3 style="font-size:17px">${esc(d.name)}</h3><div class="hint">${(+d.apr).toFixed(2)}% APR${promo?" later":""} · ${promo&&d.defer?"no payment due yet":money0(+d.min)+"/mo min"}</div></div><div class="bal">${paid?"Paid":money(+d.balance)}</div></div>
+      <div class="meter"><i style="width:${paid?100:Math.max(2,pct)}%" ></i></div>
+      <div class="chips">${paid?`<span class="chip good">Paid off</span>`:`${promo?`<span class="chip good">0% until ${fmtMonth(parse(d.intStart))}</span>`:""}${fund>=+d.balance?`<span class="chip good">Fully set aside</span>`:""}<span class="chip">${money0(start-+d.balance)} paid of ${money0(start)}</span>${pm?`<span class="chip">Gone ${fmtMonth(addMonths(pm))}</span>`:""}`}</div>
+      ${fundBlock}
+      ${paid?`<button class="btn sm ghost" data-act="deldebt" data-id="${d.id}">Remove</button>`:`<form novalidate class="inline" data-form="pay" data-id="${d.id}"><input id="pay-${d.id}" inputmode="decimal" placeholder="Payment amount" aria-label="Payment amount for ${esc(d.name)}"><button class="btn sm primary">Log payment</button></form>
+      <button class="btn sm ghost" data-act="deldebt" data-id="${d.id}" style="align-self:flex-start">Delete</button>`}
+    </section>`}).join("")}
+
+  <section class="card">
+    <details ${ds.length?"":"open"}><summary>Add a debt</summary>
+    <form novalidate class="form" data-form="debt" style="margin-top:12px">
+      <div class="field full"><label for="dn">Name</label><input id="dn" placeholder="Credit card"></div>
+      <div class="field"><label for="db">Balance</label><input id="db" inputmode="decimal" placeholder="3200"></div>
+      <div class="field"><label for="da">APR %</label><input id="da" inputmode="decimal" placeholder="24.99"></div>
+      <div class="field full"><label for="dm">Minimum payment / month (once due)</label><input id="dm" inputmode="decimal" placeholder="95"></div>
+      <div class="full card" style="box-shadow:none;background:var(--surface-2);border:0;padding:14px;display:flex;flex-direction:column;gap:10px">
+        <div><b>Not charging interest yet?</b><p class="hint" style="margin:2px 0 0">For 0% promos and deferred loans. Clocked plans what to set aside so you can pay it down before interest kicks in.</p></div>
+        <div class="field"><label for="dis">Interest starts on</label><input id="dis" type="date" min="${addDays(today(),1)}"></div>
+        <div class="field"><label for="dpt">Set aside before then (blank = whole balance)</label><input id="dpt" inputmode="decimal" placeholder="Whole balance"></div>
+        <div class="field"><label for="dfd">Already set aside</label><input id="dfd" inputmode="decimal" placeholder="0"></div>
+        <label class="switch" for="ddf">No payments due until then<input type="checkbox" id="ddf"></label>
+      </div>
+      <button class="btn primary full">Add debt</button>
+    </form></details>
+  </section>`;
+}
+
+function vGoals(){
+  const p=P(),s=SU(),per=PERIODS[s.payFreq]||26;
+  return `${p.goals.map(g=>{const pct=Math.min(100,(+g.saved/(+g.target||1))*100),done=+g.saved>=+g.target,mo=goalMonthly(g);
+    return `<section class="card goal">
+      <div class="jar" aria-hidden="true"><div class="fill" style="height:${pct}%"><div class="wave"></div></div><div class="pct">${Math.round(pct)}%</div></div>
+      <div class="g stack" style="gap:6px;min-width:0">
+        <div class="row"><h3>${esc(g.name)}</h3>${s.funTaxGoal===g.id?`<span class="chip good">Fun tax</span>`:""}</div>
+        <div class="money">${money0(+g.saved)} <span class="muted">of ${money0(+g.target)}</span></div>
+        <div class="hint">${done?"Reached":`${money0(mo*12/per)} per paycheck · by ${parse(g.date).toLocaleDateString("en-US",{month:"short",year:"numeric"})}`}</div>
+        <form novalidate class="inline" data-form="addsave" data-id="${g.id}"><input id="as-${g.id}" inputmode="decimal" placeholder="Add $" aria-label="Amount to add to ${esc(g.name)}"><button class="btn sm save">Add</button></form>
+        <div class="btns">${s.funTaxGoal!==g.id?`<button class="btn sm ghost" data-act="ftgoal" data-id="${g.id}">Send fun tax here</button>`:""}<button class="btn sm ghost" data-act="delgoal" data-id="${g.id}">Delete</button></div>
+      </div></section>`}).join("")}
+  ${p.goals.length?"":`<section class="card"><div class="empty">No savings goals yet. An emergency fund is a good first one.</div></section>`}
+  <section class="card">
+    <details ${p.goals.length?"":"open"}><summary>Add a goal</summary>
+    <form novalidate class="form" data-form="goal" style="margin-top:12px">
+      <div class="field full"><label for="gn">Name</label><input id="gn" placeholder="Emergency fund"></div>
+      <div class="field"><label for="gt">Target</label><input id="gt" inputmode="decimal" placeholder="4000"></div>
+      <div class="field"><label for="gs">Saved so far</label><input id="gs" inputmode="decimal" placeholder="0"></div>
+      <div class="field full"><label for="gd">Reach it by</label><input id="gd" type="date" value="${addDays(today(),180)}"></div>
+      <button class="btn primary full">Add goal</button>
+    </form></details>
+  </section>`;
+}
+
+const yr=()=>today().slice(0,4);
+const gigsYTD=(y,exceptId)=>(P().gigs||[]).filter(g=>g.d.slice(0,4)===y&&g.id!==exceptId);
+function nextEstDue(){const t=today(),y=+t.slice(0,4);const ds=[`${y}-01-15`,`${y}-04-15`,`${y}-06-15`,`${y}-09-15`,`${y+1}-01-15`];return ds.find(d=>d>=t)}
+function gigDests(sel){const p=P();const o=[["week","This week's spending money"]];
+  p.goals.forEach(g=>o.push(["goal:"+g.id,"Goal: "+g.name]));
+  p.debts.filter(d=>+d.balance>0).forEach(d=>{o.push(["debt:"+d.id,"Pay down: "+d.name]);if(promoMonths(d))o.push(["fund:"+d.id,"Set aside for: "+d.name])});
+  return o.map(([v,l])=>`<option value="${v}" ${v===sel?"selected":""}>${esc(l)}</option>`).join("")}
+function vGigs(){const y=yr(),gs=gigsYTD(y);if(!gs.length)return "";
+  const earned=gs.reduce((a,g)=>a+g.a,0),tax=gs.reduce((a,g)=>a+g.tax.total,0),paid=+(P().gigTaxPaid||{})[y]||0,owe=Math.max(0,tax-paid);
+  const due=nextEstDue();
+  return `<section class="card stack">
+    <div class="row"><div><div class="eyebrow">Side income · ${y}</div><h2 style="margin-top:4px"><span class="mono">${money0(earned)}</span> <span class="muted" style="font-size:15px;font-weight:600">earned</span></h2></div><span class="chip good">kept ${money0(earned-tax)}</span></div>
+    <div class="tax">
+      <div class="tl"><span>Tax on it (estimated)</span><b>${money0(tax)}</b></div>
+      <div class="tl"><span>Tax paid so far</span><b>${money0(paid)}</b></div>
+      <div class="tl tot"><span>Still to set aside / pay</span><b style="color:${owe>0?"var(--want)":"var(--save)"}">${money0(owe)}</b></div>
+    </div>
+    ${owe>0?`<p class="hint" style="margin:0">No one withholds tax on gig pay. Next IRS estimated payment is due ${parse(due).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"})}.</p>`:""}
+    <form novalidate class="inline" data-form="gigtax"><input id="gigTaxPay" inputmode="decimal" placeholder="Tax payment made" aria-label="Tax payment made"><button class="btn sm primary">Log payment</button></form>
+  </section>`}
+function gigRow(g){const rh=realHourly(SU(),thisWeekHours())||1;
+  return `<div class="txr"><div class="tag" style="background:var(--save-soft);color:var(--save)">GIG</div>
+  <div class="nm"><b>${esc(g.n||"Side income")}</b><span>Kept ${money0(g.kept)} · tax ${money0(g.tax.total)} · ${fmtDay(g.d)}</span></div>
+  <div class="r"><div><span class="a" style="color:var(--save)">+${money(g.a)}</span><span class="h">${hrs(g.kept/rh)}</span></div><button class="x" data-act="delgig" data-id="${g.id}" aria-label="Delete">×</button></div></div>`}
+function vEss(){const b=essBudget(),blank=S.sample,tot=blank?0:Object.values(b).reduce((a,v)=>a+v,0);
+  return `<section class="card stack" id="essCard">
+    <div class="row"><h2>Monthly essentials</h2><b class="mono" id="essTot" style="font-size:17px">${money0(tot)}/mo</b></div>
+    <p class="hint" style="margin:0">Each line saves as you type. Car loan payments belong under Debt, and health insurance from your paycheck goes in Pay above.</p>
+    <div class="form">${Object.entries(CATS.need).map(([k,l])=>`<div class="field"><label for="ess-${k}">${l}</label><input id="ess-${k}" data-ess="${k}" inputmode="decimal" placeholder="${ESS_HINT[k]}" value="${blank||!b[k]?"":b[k]}" autocomplete="off"></div>`).join("")}</div>
+    <p class="hint" id="essWk" style="margin:0">${essWkText(tot)}</p>
+  </section>`}
+function essWkText(tot){const rh=S.sample?0:realHourly(SU(),thisWeekHours());return `${money0(tot*12/52)} a week${rh?` · ${hrs(tot*12/52/rh)} of work each week`:""}`}
+function readEss(){const ins=document.querySelectorAll("[data-ess]");if(!ins.length)return null;const o={};ins.forEach(i=>{const v=toNum(i.value);if(v>0)o[i.dataset.ess]=Math.round(v*100)/100});return o}
+function vEssMonth(){
+  const b=essBudget(),mk=monthKey(today()),spent={};(S.tx[mk]||[]).filter(t=>catType(t.c)==="need").forEach(t=>spent[t.c]=(spent[t.c]||0)+t.a);
+  const keys=Object.keys(CATS.need).filter(k=>b[k]>0||spent[k]>0),tb=Object.values(b).reduce((a,v)=>a+v,0),ts=Object.values(spent).reduce((a,v)=>a+v,0);
+  const d=new Date(),left=new Date(d.getFullYear(),d.getMonth()+1,0).getDate()-d.getDate();
+  if(!keys.length)return `<section class="card"><h2>Essentials</h2><p class="hint" style="margin:6px 0 10px">Set what you spend each month on housing, food, insurance and the rest, and Clocked tracks each one.</p><button class="btn sm primary" data-tab="setup">Set essentials</button></section>`;
+  return `<section class="card"><div class="row" style="align-items:flex-start"><div><div class="eyebrow">Essentials · ${d.toLocaleDateString("en-US",{month:"long"})} · ${left} days left</div>
+    <h2 style="margin-top:4px"><span class="mono">${money0(ts)}</span> <span class="muted" style="font-size:15px;font-weight:600">of ${money0(tb)}</span></h2></div><button class="btn sm ghost" data-tab="setup">Edit</button></div>
+    <div style="margin-top:6px">${keys.map(k=>{const sp=spent[k]||0,bu=b[k],over=bu>0&&sp>bu,pct=bu>0?Math.min(100,sp/bu*100):100;
+      return `<div class="plan-row"><b>${CATS.need[k]}</b><span style="${over?"color:var(--want)":""}">${money0(sp)} / ${bu?money0(bu):"no budget"}</span><div class="meter"><i style="width:${Math.max(sp?2:0,pct)}%;background:var(${over||!bu?"--want":"--need"})"></i></div></div>`}).join("")}</div></section>`}
+function vSetup(){
+  const s=SU(),st=STATES[s.state]||STATES.GA,blank=S.sample;const v=k=>blank?"":esc(s[k]??"");
+  return `<section class="card stack">
+    <h2>Pay</h2>
+    <form novalidate class="form" id="setupForm" data-form="setup">
+      <div class="field"><label for="wage">Hourly wage</label><input id="wage" inputmode="decimal" placeholder="22.00" value="${v("wage")}"></div>
+      <div class="field"><label for="hours">Typical hours / week</label><input id="hours" inputmode="decimal" placeholder="40" value="${blank?"":s.hours}"></div>
+      <div class="field"><label for="payFreq">Paid</label><select id="payFreq">${Object.keys(PERIODS).map(k=>`<option value="${k}" ${s.payFreq===k?"selected":""}>${{weekly:"Weekly",biweekly:"Every 2 weeks",semimonthly:"Twice a month",monthly:"Monthly"}[k]}</option>`).join("")}</select></div>
+      <div class="field"><label for="filing">Filing status</label><select id="filing"><option value="single" ${s.filing==="single"?"selected":""}>Single</option><option value="mfj" ${s.filing==="mfj"?"selected":""}>Married, joint</option><option value="hoh" ${s.filing==="hoh"?"selected":""}>Head of household</option></select></div>
+      <div class="field"><label for="state">State</label><select id="state">${Object.entries(STATES).map(([k,x])=>`<option value="${k}" ${s.state===k?"selected":""}>${x[0]}</option>`).join("")}</select></div>
+      <div class="field"><label for="stateRate">State rate %</label><input id="stateRate" inputmode="decimal" placeholder="${st[2]}" value="${s.stateRate===null||s.stateRate===undefined?"":esc(s.stateRate)}"></div>
+      <p class="hint full" id="stateNote" style="margin:-4px 0 0"></p>
+      <div class="field"><label for="k401Pct">401(k) %</label><input id="k401Pct" inputmode="decimal" placeholder="0" value="${blank?"":(+s.k401Pct||"")}"></div>
+      <div class="field"><label for="insurance">Insurance per paycheck</label><input id="insurance" inputmode="decimal" placeholder="0" value="${blank?"":(+s.insurance||"")}"></div>
+      <div class="field full"><label for="funTaxPct">Fun tax: % of each want that goes to savings</label><input id="funTaxPct" inputmode="decimal" placeholder="10" value="${blank?10:s.funTaxPct}"></div>
+      <div class="full card" style="box-shadow:none;background:var(--surface-2);border:0;padding:14px">
+        <label class="switch" for="useStub">Calibrate from a real paystub<input type="checkbox" id="useStub" ${s.useStub&&!blank?"checked":""}></label>
+        <p class="hint" style="margin:6px 0 10px">Most accurate. Covers local taxes and anything else your employer takes out.</p>
+        <div class="form"><div class="field"><label for="stubGross">Gross pay</label><input id="stubGross" inputmode="decimal" placeholder="1848.00" value="${v("stubGross")}"></div>
+        <div class="field"><label for="stubNet">Net pay</label><input id="stubNet" inputmode="decimal" placeholder="1452.10" value="${v("stubNet")}"></div></div>
+      </div>
+      <button class="btn primary full">${S.sample?"Start with my numbers":"Save setup"}</button>
+    </form>
+  </section>
+  ${vEss()}
+  <section class="card"><div class="row"><h2>Your year, estimated</h2><span class="hint">2026 rates</span></div><div class="tax" id="taxPreview"></div></section>
+  ${S.sample?"":`<section class="card stack"><h2>Data</h2><p class="hint" style="margin:0">${DB?"Saved privately to your account. Only you can see it.":"Saved on this phone only. Use Copy backup (tap the save status) to move it to another phone."}</p>
+    <button class="btn ghost" data-act="reset" id="resetBtn">Erase everything</button></section>`}`;
+}
+function readSetupForm(){const g=id=>document.getElementById(id);if(!g("wage"))return null;const n=id=>{const x=toNum(g(id).value);return isNaN(x)?"":x};
+  return{wage:n("wage"),hours:n("hours")||40,payFreq:g("payFreq").value,filing:g("filing").value,state:g("state").value,stateRate:g("stateRate").value.trim()===""?null:n("stateRate"),
+    k401Pct:n("k401Pct")||0,insurance:n("insurance")||0,funTaxPct:Math.min(100,Math.max(0,n("funTaxPct")===""?10:n("funTaxPct"))),
+    useStub:g("useStub").checked,stubGross:n("stubGross"),stubNet:n("stubNet"),funTaxGoal:SU().funTaxGoal}}
+function updateTaxPreview(){const f=readSetupForm(),el=document.getElementById("taxPreview");if(!f||!el)return;
+  const st=STATES[f.state];const note=document.getElementById("stateNote");
+  note.textContent=st[1]==="none"?`${st[0]} has no state income tax on wages.`:st[1]==="flat"?(f.state==="GA"?"Georgia: flat 4.99% for 2026, with up to $1,750 of overtime excluded.":`${st[0]}: flat rate. Check it against your paystub.`):`${st[0]} uses brackets. This is a rough effective rate; type your own or calibrate.`;
+  if(!(+f.wage>0)){el.innerHTML=`<div class="empty">Enter your wage to see your real hourly pay.</div>`;return}
+  const a=annualCalc(f,+f.hours),rh=realHourly(f,+f.hours),stub=f.useStub&&+f.stubGross>0&&+f.stubNet>0;
+  const L=(k,v,cls="")=>`<div class="tl ${cls}"><span>${k}</span><b>${v}</b></div>`;
+  el.innerHTML=L("Gross pay",money0(a.gross))+(a.k401?L("401(k)","−"+money0(a.k401)):"")+(a.ins?L("Insurance","−"+money0(a.ins)):"")+
+    L("Federal income tax","−"+money0(a.federal))+L("Social Security + Medicare","−"+money0(a.ss+a.med))+L(`State (${a.stRate}%)`,"−"+money0(a.state))+
+    L("Take-home",money0(a.net),"tot")+L("Real hourly wage",money(a.net/a.hours),"tot")+
+    (stub?`<div class="tl tot"><span>Paystub-calibrated wage</span><b>${money(rh)}</b></div>`:"")+
+    `<p class="hint" style="margin:10px 0 0">${a.otDed?`Includes ${money0(a.otDed)} federal overtime deduction (claimed at tax time). `:""}Estimate only, not tax advice. Local taxes and credits aren't included.</p>`}
+
+/* ===== add sheet ===== */
+let selCat="dining";
+let sheetMode="spend";
+function openAdd(mode){if(S.sample){S.tab="setup";render();toast("Set up your numbers first.");return}
+  if(mode)sheetMode=mode;
+  const sh=document.getElementById("sheet"),sc=document.getElementById("scrim");
+  const seg=`<div class="seg" role="group" aria-label="Entry type" style="margin-bottom:4px"><button type="button" class="${sheetMode==="spend"?"on":""}" data-act="sheetmode" data-v="spend">Spent</button><button type="button" class="${sheetMode==="gig"?"on":""}" data-act="sheetmode" data-v="gig">Earned (side gig)</button></div>`;
+  if(sheetMode==="gig"){
+    sh.innerHTML=`<div class="grab"></div>${seg}<form novalidate data-form="gig">
+    <div class="amt-in"><span>$</span><input id="gigAmt" inputmode="decimal" placeholder="0.00" autocomplete="off" aria-label="Amount received"></div>
+    <div class="tgt" id="gigLive" style="margin-top:6px"><p class="hint" style="margin:0">Enter what you were paid. Clocked works out the tax on top of your job and what you keep.</p></div>
+    <div class="form" style="margin-top:12px">
+      <div class="field"><label for="gigExp">Gig expenses</label><input id="gigExp" inputmode="decimal" placeholder="0" autocomplete="off"></div>
+      <div class="field"><label for="gigDate">Date</label><input id="gigDate" type="date" value="${today()}" max="${today()}"></div>
+      <div class="field full"><label for="gigNote">What was it?</label><input id="gigNote" placeholder="Moving job, DJ set, resale…" autocomplete="off"></div>
+      <div class="field full"><label for="gigDest">Put what you keep toward</label><select id="gigDest">${gigDests("week")}</select></div>
+    </div>
+    <p class="hint" style="margin:8px 0 0">Expenses (supplies, mileage, fees) lower the tax. They don't change what you were paid.</p>
+    <div class="btns" style="margin-top:14px"><button type="button" class="btn ghost" data-act="close-add" style="flex:1">Cancel</button><button class="btn save" style="flex:2">Log income</button></div>
+    </form>`;
+  }else sh.innerHTML=`<div class="grab"></div>${seg}<form novalidate data-form="tx">
+    <div class="amt-in"><span>$</span><input id="txAmt" inputmode="decimal" placeholder="0.00" autocomplete="off" aria-label="Amount"></div>
+    <div class="live-hrs" id="liveHrs">Each dollar is time on the clock</div>
+    <div class="cats">
+      <div class="eyebrow">Needs</div><div class="grp">${Object.entries(CATS.need).map(([k,v])=>`<button type="button" class="cat need ${selCat===k?"on":""}" data-cat="${k}">${v}</button>`).join("")}</div>
+      <div class="eyebrow">Wants</div><div class="grp">${Object.entries(CATS.want).map(([k,v])=>`<button type="button" class="cat want ${selCat===k?"on":""}" data-cat="${k}">${v}</button>`).join("")}</div>
+    </div>
+    <div class="form"><div class="field"><label for="txNote">Note</label><input id="txNote" placeholder="Optional" autocomplete="off"></div><div class="field"><label for="txDate">Date</label><input id="txDate" type="date" value="${today()}" max="${today()}"></div></div>
+    <div class="btns" style="margin-top:16px"><button type="button" class="btn ghost" data-act="close-add" style="flex:1">Cancel</button><button class="btn primary" style="flex:2">Log it</button></div>
+  </form>`;
+  sc.hidden=false;sh.hidden=false;requestAnimationFrame(()=>{sc.classList.add("show");sh.classList.add("show")});setTimeout(()=>{const i=document.getElementById(sheetMode==="gig"?"gigAmt":"txAmt");i&&i.focus()},250)}
+function gigPreview(){const el=document.getElementById("gigLive");if(!el)return null;
+  const a=toNum(document.getElementById("gigAmt").value),x=toNum(document.getElementById("gigExp").value)||0;
+  if(!(a>0)){el.innerHTML=`<p class="hint" style="margin:0">Enter what you were paid. Clocked works out the tax on top of your job and what you keep.</p>`;return null}
+  const s=SU(),d=document.getElementById("gigDate").value||today(),y=d.slice(0,4),ytd=gigsYTD(y).reduce((t,g)=>t+Math.max(0,g.a-(g.x||0)),0);
+  const net=Math.max(0,a-x),t=gigTaxFor(s,+s.hours||40,ytd,net),kept=a-t.total,rh=realHourly(s,thisWeekHours());
+  el.innerHTML=`<div class="tgt-big"><span class="mono" style="color:var(--save)">${money(kept)}</span><small>you keep · ${a?Math.round(t.total/a*100):0}% goes to tax${rh?` · same as ${hrs(kept/rh)} at your job`:""}</small></div>
+    <div class="tax" style="margin-top:8px">
+      <div class="tl"><span>Federal income tax</span><b>${money(t.fed)}</b></div>
+      <div class="tl"><span>Self-employment tax</span><b>${money(t.se)}</b></div>
+      <div class="tl"><span>State tax (${annualCalc(s,+s.hours||40).stRate}%)</span><b>${money(t.state)}</b></div>
+      <div class="tl tot"><span>Set aside for taxes</span><b style="color:var(--want)">${money(t.total)}</b></div>
+    </div>${ytd+net<400&&net>0?`<p class="hint" style="margin:6px 0 0">Self-employment tax starts once side profit passes $400 this year.</p>`:""}`;
+  return{a,x,net,t,kept,d}}
+function closeAdd(){const sh=document.getElementById("sheet"),sc=document.getElementById("scrim");sh.classList.remove("show");sc.classList.remove("show");setTimeout(()=>{sh.hidden=true;sc.hidden=true},320)}
+function liveHrs(){const a=toNum(document.getElementById("txAmt").value),el=document.getElementById("liveHrs");if(!el)return;const rh=realHourly(SU(),thisWeekHours());
+  if(!(a>0)||!rh){el.textContent="Each dollar is time on the clock";return}
+  const h=a/rh,mins=Math.round(h*60);el.textContent=`= ${h>=1?h.toFixed(1)+" hours":mins+" minutes"} of work`+(catType(selCat)==="want"?` · fun tax ${money(a*SU().funTaxPct/100)}`:"")}
+
+/* ===== actions ===== */
+function addTx(a,c,n,d){const p=P(),m=monthKey(d);const t={id:uid(),d,c,a:Math.round(a*100)/100,n:n.slice(0,80),ts:Date.now()};
+  (S.tx[m]=S.tx[m]||[]).push(t);if(!p.months.includes(m))p.months.push(m),p.months.sort();
+  let msg;const rh=realHourly(SU(),thisWeekHours())||1;
+  if(catType(c)==="want"){const tax=t.a*SU().funTaxPct/100;p.funTaxOwed=Math.round((p.funTaxOwed+tax)*100)/100;stamp(`−${hrs(t.a/rh)}`,"var(--want)");msg=tax>0?`Fun tax +${money(tax)} owed to savings`:"Logged"}
+  else{stamp(`${hrs(t.a/rh)}`,"var(--need)");msg="Logged"}
+  touchDay(today());award("first","First log");markDirty(m);closeAdd();render();setTimeout(()=>toast(msg),300)}
+
+document.addEventListener("click",e=>{
+  const tab=e.target.closest("[data-tab]");if(tab){S.tab=tab.dataset.tab;render();scrollTo({top:0});return}
+  const cat=e.target.closest("[data-cat]");if(cat){selCat=cat.dataset.cat;document.querySelectorAll(".cat").forEach(x=>x.classList.toggle("on",x===cat));liveHrs();return}
+  const el=e.target.closest("[data-act]");if(!el)return;const act=el.dataset.act,id=el.dataset.id,p=S.profile;
+  if(act==="open-add")return openAdd();
+  if(act==="status")return openStatus();
+  if(act==="sheetmode"){const keep=(document.getElementById("txAmt")||document.getElementById("gigAmt"))?.value||"";sheetMode=el.dataset.v;openAdd();
+    const i=document.getElementById(sheetMode==="gig"?"gigAmt":"txAmt");if(i&&keep){i.value=keep;sheetMode==="gig"?gigPreview():liveHrs()}return}
+  if(act==="savenow"){if(S.sample){toast("Nothing to save yet.");return}retries=0;dirty.profile=true;Object.keys(S.tx).forEach(m=>dirty.months.add(m));saveLocal();
+    if(!DB&&IN_CLAUDE()){connect().then(()=>{flush().then(()=>{openStatus();toast(DB&&!syncErr?"Saved":"Saved on this phone")})});return}
+    if(!DB){saveLocal();idbSave(true).then(()=>{openStatus();toast(lsOK||idbOK?"Saved on this phone":"This browser won't save. Check Private Browsing.")});return}
+    flush().then(()=>{openStatus();toast(syncErr?"Save failed: "+(lastErr?.code||"error"):"Saved")});return}
+  if(act==="copybackup"){const txt=JSON.stringify({clocked:1,profile:S.profile,tx:S.tx});const ta=document.getElementById("restoreTxt");
+    const fallback=()=>{ta.value=txt;ta.focus();ta.select();toast("Backup is in the box. Copy it from there.")};
+    try{navigator.clipboard.writeText(txt).then(()=>toast("Backup copied. Paste it in Notes to keep it."),fallback)}catch(_){fallback()}return}
+  if(act==="restore"){restoreFrom(document.getElementById("restoreTxt").value);return}
+  if(act==="backupfile"){if(S.sample){toast("Nothing to back up yet.");return}saveBackupFile();return}
+  if(act==="hidewarn"){warnHidden=true;try{localStorage.setItem("clocked.warnHide",String(Date.now()+3*864e5))}catch(_){}render();return}
+  if(act==="close-add")return closeAdd();
+  if(act==="go-setup"){S.tab="setup";render();return}
+  if(S.sample&&act!=="strat"&&act!=="paymode"){S.tab="setup";render();toast("Set up your numbers first.");return}
+  if(act==="hrs"){const k=weekStart(today());p.hoursByWeek[k]=Math.max(0,Math.min(100,thisWeekHours()+ +el.dataset.d));
+    const keys=Object.keys(p.hoursByWeek).sort();if(keys.length>60)delete p.hoursByWeek[keys[0]];markDirty();render();return}
+  if(act==="nospend"){const t=today();if(!p.noSpendDays.includes(t))p.noSpendDays.push(t);p.noSpendDays=p.noSpendDays.slice(-120);touchDay(t);
+    stamp("NO SPEND","var(--save)");if(p.noSpendDays.length>=5)award("ns5","5 no-spend days");markDirty();render();return}
+  if(act==="paytax"){const dst=ftDest();if(!dst||p.funTaxOwed<=0)return;
+    const amt=p.funTaxOwed,o=dst.obj;
+    if(dst.kind==="goal"){o.saved=Math.round((+o.saved+amt)*100)/100;if(!SU().funTaxGoal)SU().funTaxGoal=o.id;if(+o.saved>=+o.target)award("goal","Goal reached")}
+    else{o.fund=Math.round(Math.min(+o.balance,(+o.fund||0)+amt)*100)/100}
+    p.funTaxPaid=Math.round((p.funTaxPaid+amt)*100)/100;p.funTaxOwed=0;stamp(`+${money(amt)}`,"var(--save)");confetti(70);
+    if(p.funTaxPaid>=50)award("ft50","$50 fun tax saved");markDirty();render();return}
+  if(act==="applyfund"){const d=p.debts.find(d=>d.id===id);if(!d||!(+d.fund>0))return;
+    if(!el.dataset.armed){el.dataset.armed=1;el.textContent="Tap again once you've paid it";return}
+    const a=+d.fund;d.balance=Math.max(0,Math.round((+d.balance-a)*100)/100);d.fund=0;
+    if(d.prepTarget!==""&&d.prepTarget!=null)d.prepTarget=Math.max(0,Math.round((+d.prepTarget-a)*100)/100);
+    if(d.balance===0){stamp("PAID OFF","var(--save)");confetti(180);award("debt","Debt paid off")}else stamp(`−${money0(a)}`,"var(--debt)");markDirty();render();return}
+  if(act==="paymode"){p.payMode=el.dataset.v;markDirty();render();return}
+  if(act==="usetgt"){const m=+el.dataset.m,x=+el.dataset.x;const d=addMonths(m);d.setDate(28);p.targetDate=ymd(d);p.extra=x;markDirty();render();
+    stamp(fmtMonth(addMonths(m)),"var(--debt)");toast(`Plan set: ${money0(x)} extra/month`);return}
+  if(act==="delgig"){if(!el.classList.contains("confirm")){el.classList.add("confirm");el.textContent="Delete";setTimeout(()=>{if(el.isConnected){el.classList.remove("confirm");el.textContent="×"}},3000);return}
+    const g=(p.gigs||[]).find(g=>g.id===id);if(!g)return;const [k,did]=(g.dest||"week").split(":");
+    if(k==="goal"){const o=p.goals.find(x=>x.id===did);if(o)o.saved=Math.max(0,Math.round((+o.saved-g.kept)*100)/100)}
+    if(k==="debt"){const o=p.debts.find(x=>x.id===did);if(o)o.balance=Math.round((+o.balance+g.kept)*100)/100}
+    if(k==="fund"){const o=p.debts.find(x=>x.id===did);if(o)o.fund=Math.max(0,Math.round(((+o.fund||0)-g.kept)*100)/100)}
+    p.gigs=p.gigs.filter(x=>x.id!==id);markDirty();render();return}
+  if(act==="ftdebt"){SU().funTaxGoal="debt:"+id;markDirty();render();toast("Fun tax now goes to this debt's set-aside");return}
+  if(act==="deltx"){if(!el.classList.contains("confirm")){el.classList.add("confirm");el.textContent="Delete";setTimeout(()=>{if(el.isConnected){el.classList.remove("confirm");el.textContent="×"}},3000);return}
+    for(const m of Object.keys(S.tx)){const i=S.tx[m].findIndex(t=>t.id===id);if(i>-1){const t=S.tx[m][i];S.tx[m].splice(i,1);
+      if(catType(t.c)==="want")p.funTaxOwed=Math.max(0,Math.round((p.funTaxOwed-t.a*SU().funTaxPct/100)*100)/100);markDirty(m);break}}render();return}
+  if(act==="strat"){if(S.sample){p.strategy=el.dataset.v;render();return}p.strategy=el.dataset.v;markDirty();render();return}
+  if(act==="deldebt"||act==="delgoal"){if(!el.dataset.armed){el.dataset.armed=1;el.textContent="Tap again to delete";el.classList.add("danger");return}
+    if(act==="deldebt"){p.debts=p.debts.filter(d=>d.id!==id);if(SU().funTaxGoal==="debt:"+id)SU().funTaxGoal=p.goals[0]?.id||null}else{p.goals=p.goals.filter(g=>g.id!==id);if(SU().funTaxGoal===id)SU().funTaxGoal=p.goals[0]?.id||null}markDirty();render();return}
+  if(act==="ftgoal"){SU().funTaxGoal=id;markDirty();render();toast("Fun tax now goes to this goal");return}
+  if(act==="reset"){if(!el.dataset.armed){el.dataset.armed=1;el.textContent="Tap again to erase all data";el.classList.add("danger");return}
+    const months=Object.keys(S.tx);S.profile=blankProfile();S.tx={};try{localStorage.removeItem(LS)}catch(_){}
+    if(DB&&UID){(async()=>{try{await DB.doc(`data/users/${UID}/profile`).delete();for(const m of months)await DB.doc(`data/users/${UID}/tx-${m}`).delete()}catch(_){}})()}
+    const s=sampleState();S.profile=s.profile;S.tx=s.tx;S.sample=true;S.tab="setup";render();toast("Erased.");return}
+});
+document.getElementById("scrim").addEventListener("click",closeAdd);
+document.addEventListener("input",e=>{
+  if(e.target.id==="txAmt")return liveHrs();
+  if(e.target.id==="gigAmt"||e.target.id==="gigExp"||e.target.id==="gigDate")return gigPreview();
+  if(e.target.dataset&&e.target.dataset.ess){const o=readEss()||{},tot=Object.values(o).reduce((a,v)=>a+v,0);
+    document.getElementById("essTot").textContent=money0(tot)+"/mo";
+    if(!S.sample){SU().ess=o;SU().essentials=0;markDirty();document.getElementById("essWk").textContent=essWkText(tot)}return}
+  if(e.target.id==="extra"){document.getElementById("extraV").textContent=money0(+e.target.value);return}
+  if(e.target.id==="tgtM"){const m=+e.target.value;document.getElementById("tgtV").textContent=fmtMonth(addMonths(m));
+    cancelAnimationFrame(tgtRaf);tgtRaf=requestAnimationFrame(()=>{document.getElementById("tgtOut").innerHTML=tgtHTML(m)});return}
+  if(e.target.closest("#setupForm"))updateTaxPreview();
+});
+document.addEventListener("change",e=>{if(e.target.id==="restoreFile"){const f=e.target.files&&e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>restoreFrom(String(r.result||""));r.onerror=()=>toast("Couldn't read that file.");r.readAsText(f);return}
+if(e.target.id==="extra"&&!S.sample){P().extra=+e.target.value;markDirty();render()}else if(e.target.id==="extra"){P().extra=+e.target.value;render()}
+  if(e.target.closest("#setupForm"))updateTaxPreview()});
+/* Forms run on tap, not on submit: some app views block form submission entirely. */
+document.addEventListener("submit",e=>{e.preventDefault();handleForm(e.target)});
+document.addEventListener("click",e=>{const btn=e.target.closest("form button");if(!btn||btn.type==="button")return;e.preventDefault();e.stopPropagation();handleForm(btn.form||btn.closest("form"))},true);
+document.addEventListener("keydown",e=>{if(e.key!=="Enter"||e.isComposing)return;const t=e.target;if(!t.matches||!t.matches("form input")||t.type==="checkbox")return;e.preventDefault();t.blur();handleForm(t.form||t.closest("form"))});
+let formBusy=false;
+function handleForm(f){if(!f||formBusy)return;formBusy=true;setTimeout(()=>formBusy=false,350);try{runForm(f)}catch(err){toast("Something went wrong: "+(err&&err.message||err))}}
+function runForm(f){const kind=f.dataset.form,p=S.profile,num=id=>toNum(document.getElementById(id)?.value);
+  if(kind==="setup"){const s=readSetupForm();if(!(+s.wage>0)){toast("Enter your hourly wage.");return}
+    const essIn=readEss();if(S.sample){const fresh=blankProfile();S.profile=fresh;S.tx={};S.sample=false}
+    if(essIn)S.profile.setup.ess=essIn;
+    const was=S.profile.setup.funTaxGoal;Object.assign(S.profile.setup,s,{funTaxGoal:was});award("setup","Set up");markDirty();S.tab="today";render();scrollTo({top:0});stamp(money(realHourly(SU()))+"/h","var(--accent)");return}
+  if(S.sample){S.tab="setup";render();toast("Set up your numbers first.");return}
+  if(kind==="gig"){const r=gigPreview();if(!r){toast("Enter what you were paid.");return}
+    const dest=document.getElementById("gigDest").value||"week",note=document.getElementById("gigNote").value.trim();
+    const R=v=>Math.round(v*100)/100,g={id:uid(),d:r.d,a:R(r.a),x:R(r.x),n:note.slice(0,80),dest,kept:R(r.kept),tax:{fed:R(r.t.fed),se:R(r.t.se),state:R(r.t.state),total:R(r.t.total)},ts:Date.now()};
+    if(!p.gigs)p.gigs=[];p.gigs.push(g);
+    const [k,did]=dest.split(":");
+    if(k==="goal"){const o=p.goals.find(x=>x.id===did);if(o){const b=+o.saved;o.saved=R(b+g.kept);if(b<+o.target&&o.saved>=+o.target)award("goal","Goal reached")}}
+    if(k==="debt"){const o=p.debts.find(x=>x.id===did);if(o){o.balance=Math.max(0,R(+o.balance-g.kept));if(o.balance===0)award("debt","Debt paid off")}}
+    if(k==="fund"){const o=p.debts.find(x=>x.id===did);if(o)o.fund=R(Math.min(+o.balance,(+o.fund||0)+g.kept))}
+    touchDay(today());markDirty();closeAdd();render();stamp("+"+money0(g.kept),"var(--save)");confetti(90);
+    setTimeout(()=>toast(`Set aside ${money(g.tax.total)} for taxes`),400);return}
+  if(kind==="gigtax"){const a=num("gigTaxPay");if(!(a>0))return;const y=yr();if(!p.gigTaxPaid||Array.isArray(p.gigTaxPaid))p.gigTaxPaid={};p.gigTaxPaid[y]=Math.round(((+p.gigTaxPaid[y]||0)+a)*100)/100;markDirty();render();toast("Tax payment logged");return}
+  if(kind==="tx"){const a=num("txAmt");if(!(a>0)){toast("Enter an amount.");return}addTx(a,selCat,document.getElementById("txNote").value.trim(),document.getElementById("txDate").value||today());return}
+  if(kind==="debt"){const n=document.getElementById("dn").value.trim(),b=num("db"),a0=num("da"),is=document.getElementById("dis").value,pt=num("dpt"),fd=num("dfd")||0,df=document.getElementById("ddf").checked;
+    const later=!!is&&is>today();let m=num("dm");if(isNaN(m)&&later)m=0;const a=isNaN(a0)&&later?0:a0;
+    const miss=[!n&&"name",!(b>0)&&"balance",!(a>=0)&&"APR",!(m>=0)&&"minimum payment",(m===0&&!later)&&"a minimum above $0 (or an interest start date)"].filter(Boolean);
+    if(miss.length){toast("Add "+miss.join(", ")+".");return}
+    const d={id:uid(),name:n.slice(0,40),balance:b,start:b,apr:a,min:m,fund:Math.min(fd,b)};
+    if(later){d.intStart=is;d.defer=df;d.prepTarget=pt>0?Math.min(pt,b):""}
+    p.debts.push(d);if(later&&!p.goals.length&&!SU().funTaxGoal)SU().funTaxGoal="debt:"+d.id;
+    markDirty();render();toast(later?`0% until ${fmtMonth(parse(is))}. Set-aside plan ready.`:"Debt added. Here's your plan.");return}
+  if(kind==="fund"){const d=p.debts.find(d=>d.id===f.dataset.id),a=num("fund-"+f.dataset.id);if(!d||!(a>0))return;
+    const before=+d.fund||0;d.fund=Math.round(Math.min(+d.balance,before+a)*100)/100;touchDay(today());stamp(`+${money0(a)}`,"var(--save)");
+    if(before<prepTarget(d)&&d.fund>=prepTarget(d)){confetti(160);toast("Fully covered before interest starts.")}markDirty();render();return}
+  if(kind==="pay"){const d=p.debts.find(d=>d.id===f.dataset.id),a=num("pay-"+f.dataset.id);if(!d||!(a>0))return;
+    d.balance=Math.max(0,Math.round((+d.balance-a)*100)/100);touchDay(today());
+    if(d.balance===0){stamp("PAID OFF","var(--save)");confetti(180);award("debt","Debt paid off")}else{stamp(`−${money0(a)}`,"var(--debt)")}markDirty();render();return}
+  if(kind==="goal"){const n=document.getElementById("gn").value.trim(),t=num("gt"),s=num("gs")||0,d=document.getElementById("gd").value;if(!n||!(t>0)||!d){toast("Fill in a name, target and date.");return}
+    const g={id:uid(),name:n.slice(0,40),target:t,saved:s,date:d};p.goals.push(g);if(!SU().funTaxGoal)SU().funTaxGoal=g.id;markDirty();render();toast("Goal added.");return}
+  if(kind==="addsave"){const g=p.goals.find(g=>g.id===f.dataset.id),a=num("as-"+f.dataset.id);if(!g||!(a>0))return;
+    const before=+g.saved;g.saved=Math.round((before+a)*100)/100;stamp(`+${money0(a)}`,"var(--save)");
+    if(before<+g.target&&g.saved>=+g.target){confetti(200);award("goal","Goal reached")}markDirty();render();return}
+}
+
+function afterLoad(){autoFreeze();render()}
+function animateRings(){document.querySelectorAll(".ring .val[data-off]").forEach(c=>{requestAnimationFrame(()=>requestAnimationFrame(()=>c.style.strokeDashoffset=c.dataset.off))})}
+const _render=render;render=function(){_render();animateRings()};
+
+/* boot */
+(function boot(){const l=loadLocal();if(l){S.profile=Object.assign(blankProfile(),l.profile);S.profile.setup=Object.assign(blankProfile().setup,l.profile.setup);S.tx=l.tx||{};S.sample=false;S.localPending=!!l.pending}
+  else{const s=sampleState();S.profile=s.profile;S.tx=s.tx;S.sample=true}
+  if(!S.sample)askPersist();afterLoad();idbRecover().finally(connect)})();
+async function idbRecover(){try{const r=await idbGet();idbOK=true;if(!r||!r.profile){if(!S.sample)idbSave();return}
+  const lu=S.sample?-1:(S.profile.updated||0),ru=r.profile.updated||0;
+  if(ru>lu){S.profile=Object.assign(blankProfile(),thaw(r.profile));S.profile.setup=Object.assign(blankProfile().setup,r.profile.setup);S.tx=thaw(r.tx||{});S.sample=false;
+    try{localStorage.setItem(LS,JSON.stringify({profile:S.profile,tx:S.tx}));lsOK=true}catch(_){lsOK=false}afterLoad()}
+  else if(ru<lu)idbSave();setSync()}catch(e){idbOK=false;setSync()}}
+</script>
+</body>
+</html>
