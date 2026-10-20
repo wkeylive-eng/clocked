@@ -440,8 +440,20 @@ function ftDest(){const k=SU().funTaxGoal||"";
   const d=P().debts.find(x=>promoMonths(x)&&+x.balance>0);return d?{kind:"debt",obj:d,name:d.name}:null}
 
 /* ===== state ===== */
-function blankProfile(){return{v:1,setup:{wage:"",hours:40,payFreq:"biweekly",state:"GA",filing:"single",k401Pct:0,insurance:0,stateRate:null,useStub:false,stubGross:"",stubNet:"",essentials:"",ess:{},funTaxPct:10,funTaxGoal:null},
-  debts:[],strategy:"avalanche",extra:0,goals:[],hoursByWeek:{},logDays:[],frozenDays:[],freezes:0,freezeAwardAt:0,noSpendDays:[],gigs:[],gigTaxPaid:{},badges:{},funTaxOwed:0,funTaxPaid:0,months:[],created:today()}}
+const SCHEMA=2;
+/* Every load path (phone storage, second copy, account, backup file) goes through hydrate():
+   it fills in anything an older version didn't have and never drops existing fields. */
+function hydrate(raw){raw=JSON.parse(JSON.stringify(raw||{}));const p=Object.assign(blankProfile(),raw);p.setup=Object.assign(blankProfile().setup,raw.setup||{});
+  for(const k of ["debts","goals","logDays","frozenDays","noSpendDays","months","gigs","bizExp"])if(!Array.isArray(p[k]))p[k]=[];
+  for(const k of ["hoursByWeek","badges"])if(!p[k]||typeof p[k]!=="object"||Array.isArray(p[k]))p[k]={};
+  if(!p.gigTaxPaid||typeof p.gigTaxPaid!=="object"||Array.isArray(p.gigTaxPaid))p.gigTaxPaid={};
+  if(!p.setup.ess||typeof p.setup.ess!=="object")p.setup.ess={};
+  p.v=SCHEMA;return p}
+/* Before an older version's data is upgraded, keep an untouched copy on the phone. */
+const PRE_KEY="clocked.pre-v"+SCHEMA;
+function snapshotOld(raw){try{if(raw&&raw.profile&&(raw.profile.v||1)<SCHEMA&&!localStorage.getItem(PRE_KEY))localStorage.setItem(PRE_KEY,JSON.stringify({clocked:1,saved:new Date().toISOString(),profile:raw.profile,tx:raw.tx||{}}))}catch(_){}}
+function blankProfile(){return{v:SCHEMA,setup:{wage:"",hours:40,payFreq:"biweekly",state:"GA",filing:"single",k401Pct:0,insurance:0,stateRate:null,useStub:false,stubGross:"",stubNet:"",essentials:"",ess:{},funTaxPct:10,funTaxGoal:null},
+  debts:[],strategy:"avalanche",extra:0,goals:[],hoursByWeek:{},logDays:[],frozenDays:[],freezes:0,freezeAwardAt:0,noSpendDays:[],gigs:[],bizExp:[],gigTaxPaid:{},badges:{},funTaxOwed:0,funTaxPaid:0,months:[],created:today()}}
 function sampleState(){
   const p=blankProfile();const t=today();
   Object.assign(p.setup,{wage:22,hours:42,payFreq:"biweekly",state:"GA",filing:"single",insurance:45,essentials:0,ess:{rent:1100,utilities:140,bills:120,transport:160,groceries:380,phone:75}});
@@ -505,7 +517,7 @@ function setSync(){const el=document.getElementById("sync");if(!el)return;let t,
 /* Stored snapshots arrive frozen (read-only), so everything loaded is deep-copied before the app edits it. */
 const thaw=o=>JSON.parse(JSON.stringify(o??null));
 async function loadMonths(p){const tx={};for(const m of (p.months||[]).slice(-14)){const ms=await DB.doc(`data/users/${UID}/tx-${m}`).get();tx[m]=ms.exists?thaw(ms.data().items||[]):[]}return tx}
-async function adopt(p){p=thaw(p);const tx=await loadMonths(p);S.profile=Object.assign(blankProfile(),p);S.profile.setup=Object.assign(blankProfile().setup,p.setup);S.tx=tx;S.sample=false;saveLocal();
+async function adopt(p){p=thaw(p);const tx=await loadMonths(p);snapshotOld({profile:p,tx});S.profile=hydrate(p);S.tx=tx;S.sample=false;saveLocal();
   const a=document.activeElement;if(a&&a.matches&&a.matches("input,select")&&!document.getElementById("sheet").contains(a)){pendingAdopt=true;return}afterLoad()}
 async function connect(){
   try{
@@ -542,7 +554,8 @@ function budget(){
   const saveM=P().goals.reduce((a,g)=>a+goalMonthly(g),0);
   const debt=debtM*W,save=saveM*W,fun=Math.max(0,net-needs-debt-save);
   const wantSpent=weekTx().filter(t=>catType(t.c)==="want").reduce((a,t)=>a+t.a,0);
-  return{net,needs,debt,save,fun,wantSpent,left:fun-wantSpent,shortfall:net-needs-debt-save,h,rh:h>0?jobNet/h:0,jobNet,gigWeek};
+  const bizWeek=(P().bizExp||[]).filter(b=>b.d>=ws&&b.d<=we).reduce((a,b)=>a+(+b.a||0),0);
+  return{net,needs,debt,save,fun,wantSpent,bizWeek,left:fun-wantSpent-bizWeek,shortfall:net-needs-debt-save,h,rh:h>0?jobNet/h:0,jobNet,gigWeek};
 }
 function streakInfo(){const set=new Set([...P().logDays,...P().frozenDays]);let d=today(),n=0;if(!set.has(d))d=addDays(d,-1);while(set.has(d)){n++;d=addDays(d,-1)}return{n,todayDone:P().logDays.includes(today())}}
 
@@ -594,7 +607,7 @@ function vToday(){
   const wk=weekTx(),need=wk.filter(t=>catType(t.c)==="need").reduce((a,t)=>a+t.a,0),want=b.wantSpent;
   const byCat={};wk.filter(t=>catType(t.c)==="want").forEach(t=>byCat[t.c]=(byCat[t.c]||0)+t.a);
   const top=Object.entries(byCat).sort((a,b)=>b[1]-a[1]).slice(0,4);const maxC=Math.max(1,...top.map(x=>x[1]));
-  const recent=[...allTx(),...(P().gigs||[]).map(g=>({...g,gig:1}))].sort((a,b)=>b.d.localeCompare(a.d)||(b.ts||0)-(a.ts||0)).slice(0,12);
+  const recent=[...allTx(),...(P().gigs||[]).map(g=>({...g,gig:1})),...(P().bizExp||[]).map(x=>({...x,biz:1}))].sort((a,b)=>b.d.localeCompare(a.d)||(b.ts||0)-(a.ts||0)).slice(0,12);
   const goal=ftDest();
   const ws=weekStart(today());
   return `
@@ -644,6 +657,7 @@ function vToday(){
     <div class="bars">
       <div class="bar"><span>Needs</span><div class="tr"><div class="fl" style="width:${need+want?need/(need+want)*100:0}%;background:var(--need)"></div></div><span class="v">${money0(need)}</span></div>
       <div class="bar"><span>Wants</span><div class="tr"><div class="fl" style="width:${need+want?want/(need+want)*100:0}%;background:var(--want)"></div></div><span class="v">${money0(want)}</span></div>
+      ${b.bizWeek>0?`<div class="bar"><span>Business</span><div class="tr"><div class="fl" style="width:${Math.min(100,b.bizWeek/Math.max(1,need+want+b.bizWeek)*100)}%;background:var(--debt)"></div></div><span class="v">${money0(b.bizWeek)}</span></div>`:""}
       ${top.map(([c,v])=>`<div class="bar small muted"><span>· ${catName(c)}</span><div class="tr"><div class="fl" style="width:${v/maxC*100}%;background:var(--want);opacity:.55"></div></div><span class="v">${hrs(v/(b.rh||1))}</span></div>`).join("")}
     </div>
     ${want>0?`<p class="small" style="margin:12px 0 0">Wants cost you <b class="mono">${hrs(want/(b.rh||1))}</b> of work this week.</p>`:""}
@@ -655,7 +669,7 @@ function vToday(){
 
   <section class="card">
     <div class="row"><h2>Recent</h2></div>
-    <div class="tx" style="margin-top:6px">${recent.length?recent.map(t=>t.gig?gigRow(t):txRow(t)).join(""):`<div class="empty">No purchases yet. Tap + to log one.</div>`}</div>
+    <div class="tx" style="margin-top:6px">${recent.length?recent.map(t=>t.gig?gigRow(t):t.biz?bizRow(t):txRow(t)).join(""):`<div class="empty">No purchases yet. Tap + to log one.</div>`}</div>
   </section>
 
   <section class="card">
@@ -718,7 +732,7 @@ async function saveBackupFile(){const txt=backupText(),name=`clocked-backup-${to
     setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1500);markBackup("Backup saved to Downloads.")}catch(e){toast("Couldn't save a file here. Use Copy backup instead.")}}
 function restoreFrom(txt){let j;try{j=JSON.parse(txt)}catch(_){toast("That doesn't look like a Clocked backup.");return false}
   if(!j||!j.profile||!j.profile.setup){toast("That doesn't look like a Clocked backup.");return false}
-  S.profile=Object.assign(blankProfile(),thaw(j.profile));S.profile.setup=Object.assign(blankProfile().setup,j.profile.setup);S.tx=thaw(j.tx||{});S.sample=false;
+  S.profile=hydrate(j.profile);S.tx=thaw(j.tx||{});S.sample=false;
   Object.keys(S.tx).forEach(m=>dirty.months.add(m));markDirty();closeAdd();S.tab="today";render();confetti(80);toast("Restored.");return true}
 let warnHidden=false;try{warnHidden=+localStorage.getItem("clocked.warnHide")>Date.now()}catch(_){}
 function storageBanner(){
@@ -746,6 +760,7 @@ function openStatus(){
       ${lastErr?`<div class="tl"><span>Last problem</span><b style="color:var(--want)">${esc(lastErr.code)}</b></div><p class="hint" style="margin:4px 0 0">${esc(lastErr.message)}</p>`:""}
     </div>
     <div class="btns"><button class="btn primary" data-act="savenow">Save now</button>${IN_CLAUDE()&&!DL?"":`<button class="btn save" data-act="backupfile">Save backup file</button>`}<button class="btn ghost" data-act="copybackup">Copy backup</button></div>
+    ${(()=>{try{return localStorage.getItem(PRE_KEY)}catch(_){return null}})()?`<button class="btn ghost" data-act="restorepre">Restore data from before the last update</button>`:""}
     <div class="field"><label for="restoreFile">Restore from a backup file</label><input type="file" id="restoreFile" style="font-size:14px"></div>
     <div class="field"><label for="restoreTxt">Or paste a copied backup</label><textarea id="restoreTxt" placeholder="Paste a backup here"></textarea></div>
     <div class="btns"><button class="btn ghost" data-act="restore">Restore</button><button class="btn ghost" data-act="close-add" style="margin-left:auto">Close</button></div>
@@ -854,25 +869,42 @@ function vGoals(){
 }
 
 const yr=()=>today().slice(0,4);
+const MILE_RATE=0.725; // IRS 2026 business standard mileage rate
+const BIZ={supplies:"Supplies",equip:"Equipment & tools",mileage:"Mileage",phone:"Phone & internet (business share)",software:"Software & subscriptions",fees:"Fees & licenses",ads:"Advertising",meals:"Business meals (50%)",other:"Other"};
+const bizYTD=y=>(P().bizExp||[]).filter(b=>b.d.slice(0,4)===y);
+/* Side-business profit for a year: gig pay minus per-gig costs minus deductible business expenses. */
+function gigProfitYTD(y,exceptGigId){return Math.max(0,gigsYTD(y,exceptGigId).reduce((t,g)=>t+g.a-(g.x||0),0)-bizYTD(y).reduce((t,b)=>t+(+b.ded||0),0))}
 const gigsYTD=(y,exceptId)=>(P().gigs||[]).filter(g=>g.d.slice(0,4)===y&&g.id!==exceptId);
 function nextEstDue(){const t=today(),y=+t.slice(0,4);const ds=[`${y}-01-15`,`${y}-04-15`,`${y}-06-15`,`${y}-09-15`,`${y+1}-01-15`];return ds.find(d=>d>=t)}
 function gigDests(sel){const p=P();const o=[["week","This week's spending money"]];
   p.goals.forEach(g=>o.push(["goal:"+g.id,"Goal: "+g.name]));
   p.debts.filter(d=>+d.balance>0).forEach(d=>{o.push(["debt:"+d.id,"Pay down: "+d.name]);if(promoMonths(d))o.push(["fund:"+d.id,"Set aside for: "+d.name])});
   return o.map(([v,l])=>`<option value="${v}" ${v===sel?"selected":""}>${esc(l)}</option>`).join("")}
-function vGigs(){const y=yr(),gs=gigsYTD(y);if(!gs.length)return "";
-  const earned=gs.reduce((a,g)=>a+g.a,0),tax=gs.reduce((a,g)=>a+g.tax.total,0),paid=+(P().gigTaxPaid||{})[y]||0,owe=Math.max(0,tax-paid);
+function vGigs(){const y=yr(),gs=gigsYTD(y),bs=bizYTD(y);if(!gs.length&&!bs.length)return "";
+  const s=SU(),h=+s.hours||40,earned=gs.reduce((a,g)=>a+g.a,0),gigX=gs.reduce((a,g)=>a+(g.x||0),0),ded=bs.reduce((a,b)=>a+(+b.ded||0),0);
+  const profit=Math.max(0,earned-gigX-ded),T=gigTaxTotal(s,h,profit),tax=T.fed+T.se+T.state,T0=gigTaxTotal(s,h,Math.max(0,earned-gigX)),saved=Math.max(0,T0.fed+T0.se+T0.state-tax);
+  const paid=+(P().gigTaxPaid||{})[y]||0,owe=Math.max(0,tax-paid);
+  const byCat={};bs.forEach(b=>byCat[b.c]=(byCat[b.c]||0)+(+b.ded||0));
+  const bizBlock=bs.length?`<div class="tax">${Object.entries(byCat).sort((a,b)=>b[1]-a[1]).map(([c,v])=>`<div class="tl"><span>${esc(BIZ[c]||"Other")}</span><b>${money0(v)}</b></div>`).join("")}
+      <div class="tl tot"><span>Deductible expenses</span><b>${money0(ded)}</b></div></div>
+    ${earned>0?(saved>=1?`<p class="small" style="margin:0;font-weight:600;color:var(--save)">Expenses lowered your tax by ${money0(saved)}.</p>`:""):`<p class="hint" style="margin:0">Business expenses lower tax on self-employment income. Log side-gig pay to see the savings.</p>`}`:"";
   const due=nextEstDue();
   return `<section class="card stack">
-    <div class="row"><div><div class="eyebrow">Side income · ${y}</div><h2 style="margin-top:4px"><span class="mono">${money0(earned)}</span> <span class="muted" style="font-size:15px;font-weight:600">earned</span></h2></div><span class="chip good">kept ${money0(earned-tax)}</span></div>
+    <div class="row"><div><div class="eyebrow">Side business · ${y}</div><h2 style="margin-top:4px"><span class="mono">${money0(earned)}</span> <span class="muted" style="font-size:15px;font-weight:600">earned</span></h2></div><span class="chip good">profit ${money0(profit)}</span></div>
+    ${bizBlock}
     <div class="tax">
-      <div class="tl"><span>Tax on it (estimated)</span><b>${money0(tax)}</b></div>
+      <div class="tl"><span>Tax on profit (estimated)</span><b>${money0(tax)}</b></div>
       <div class="tl"><span>Tax paid so far</span><b>${money0(paid)}</b></div>
       <div class="tl tot"><span>Still to set aside / pay</span><b style="color:${owe>0?"var(--want)":"var(--save)"}">${money0(owe)}</b></div>
     </div>
     ${owe>0?`<p class="hint" style="margin:0">No one withholds tax on gig pay. Next IRS estimated payment is due ${parse(due).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"})}.</p>`:""}
     <form novalidate class="inline" data-form="gigtax"><input id="gigTaxPay" inputmode="decimal" placeholder="Tax payment made" aria-label="Tax payment made"><button class="btn sm primary">Log payment</button></form>
   </section>`}
+function bizRow(x){const rh=realHourly(SU(),thisWeekHours())||1;
+  const sub=x.c==="mileage"?`${(+x.miles||0).toLocaleString()} mi · deduct ${money0(x.ded)}`:`${esc(BIZ[x.c]||"Other")} · deduct ${money0(x.ded)}`;
+  return `<div class="txr"><div class="tag" style="background:var(--debt-soft);color:var(--debt)">BIZ</div>
+  <div class="nm"><b>${esc(x.n||BIZ[x.c]||"Business expense")}</b><span>${sub} · ${fmtDay(x.d)}</span></div>
+  <div class="r"><div><span class="a">${x.a?money(x.a):"—"}</span><span class="h">${x.a?hrs(x.a/rh):"no cash"}</span></div><button class="x" data-act="delbiz" data-id="${x.id}" aria-label="Delete">×</button></div></div>`}
 function gigRow(g){const rh=realHourly(SU(),thisWeekHours())||1;
   return `<div class="txr"><div class="tag" style="background:var(--save-soft);color:var(--save)">GIG</div>
   <div class="nm"><b>${esc(g.n||"Side income")}</b><span>Kept ${money0(g.kept)} · tax ${money0(g.tax.total)} · ${fmtDay(g.d)}</span></div>
@@ -946,7 +978,8 @@ let sheetMode="spend";
 function openAdd(mode){if(S.sample){S.tab="setup";render();toast("Set up your numbers first.");return}
   if(mode)sheetMode=mode;
   const sh=document.getElementById("sheet"),sc=document.getElementById("scrim");
-  const seg=`<div class="seg" role="group" aria-label="Entry type" style="margin-bottom:4px"><button type="button" class="${sheetMode==="spend"?"on":""}" data-act="sheetmode" data-v="spend">Spent</button><button type="button" class="${sheetMode==="gig"?"on":""}" data-act="sheetmode" data-v="gig">Earned (side gig)</button></div>`;
+  const segB=(v,l)=>`<button type="button" class="${sheetMode===v?"on":""}" data-act="sheetmode" data-v="${v}">${l}</button>`;
+  const seg=`<div class="seg" role="group" aria-label="Entry type" style="margin-bottom:4px;grid-template-columns:repeat(3,1fr)">${segB("spend","Spent")}${segB("gig","Earned")}${segB("biz","Business")}</div>`;
   if(sheetMode==="gig"){
     sh.innerHTML=`<div class="grab"></div>${seg}<form novalidate data-form="gig">
     <div class="amt-in"><span>$</span><input id="gigAmt" inputmode="decimal" placeholder="0.00" autocomplete="off" aria-label="Amount received"></div>
@@ -960,6 +993,16 @@ function openAdd(mode){if(S.sample){S.tab="setup";render();toast("Set up your nu
     <p class="hint" style="margin:8px 0 0">Expenses (supplies, mileage, fees) lower the tax. They don't change what you were paid.</p>
     <div class="btns" style="margin-top:14px"><button type="button" class="btn ghost" data-act="close-add" style="flex:1">Cancel</button><button class="btn save" style="flex:2">Log income</button></div>
     </form>`;
+  }else if(sheetMode==="biz"){
+    sh.innerHTML=`<div class="grab"></div>${seg}<form novalidate data-form="biz">
+    <div class="amt-in" id="bizAmtWrap"><span id="bizUnit">$</span><input id="bizAmt" inputmode="decimal" placeholder="0.00" autocomplete="off" aria-label="Amount"></div>
+    <div class="live-hrs" id="bizLive">Business costs lower the tax on your side income</div>
+    <div class="cats"><div class="eyebrow">Type</div><div class="grp">${Object.entries(BIZ).map(([k,v])=>`<button type="button" class="cat need ${selBiz===k?"on":""}" data-bizcat="${k}">${v}</button>`).join("")}</div></div>
+    <div class="form"><div class="field"><label for="bizNote">What was it?</label><input id="bizNote" placeholder="Optional" autocomplete="off"></div><div class="field"><label for="bizDate">Date</label><input id="bizDate" type="date" value="${today()}" max="${today()}"></div></div>
+    <p class="hint" style="margin:8px 0 0">Only the business share counts. Personal use doesn't. Keep receipts.</p>
+    <div class="btns" style="margin-top:14px"><button type="button" class="btn ghost" data-act="close-add" style="flex:1">Cancel</button><button class="btn primary" style="flex:2">Log expense</button></div>
+    </form>`;
+    setTimeout(bizPreview,0);
   }else sh.innerHTML=`<div class="grab"></div>${seg}<form novalidate data-form="tx">
     <div class="amt-in"><span>$</span><input id="txAmt" inputmode="decimal" placeholder="0.00" autocomplete="off" aria-label="Amount"></div>
     <div class="live-hrs" id="liveHrs">Each dollar is time on the clock</div>
@@ -971,10 +1014,18 @@ function openAdd(mode){if(S.sample){S.tab="setup";render();toast("Set up your nu
     <div class="btns" style="margin-top:16px"><button type="button" class="btn ghost" data-act="close-add" style="flex:1">Cancel</button><button class="btn primary" style="flex:2">Log it</button></div>
   </form>`;
   sc.hidden=false;sh.hidden=false;requestAnimationFrame(()=>{sc.classList.add("show");sh.classList.add("show")});setTimeout(()=>{const i=document.getElementById(sheetMode==="gig"?"gigAmt":"txAmt");i&&i.focus()},250)}
+let selBiz="supplies";
+function bizPreview(){const el=document.getElementById("bizLive");if(!el)return null;const mi=selBiz==="mileage";
+  document.getElementById("bizUnit").textContent=mi?"mi":"$";document.getElementById("bizAmt").placeholder=mi?"0":"0.00";
+  const v=toNum(document.getElementById("bizAmt").value);if(!(v>0)){el.textContent=mi?`Miles driven for business · ${Math.round(MILE_RATE*1000)/10}¢ a mile`:"Business costs lower the tax on your side income";return null}
+  const ded=mi?v*MILE_RATE:selBiz==="meals"?v*.5:v,a=mi?0:v,s=SU(),y=(document.getElementById("bizDate").value||today()).slice(0,4);
+  const base=gigProfitYTD(y),save=gigTaxTotal(s,+s.hours||40,base).fed+gigTaxTotal(s,+s.hours||40,base).se+gigTaxTotal(s,+s.hours||40,base).state-(()=>{const t=gigTaxTotal(s,+s.hours||40,Math.max(0,base-ded));return t.fed+t.se+t.state})();
+  el.textContent=`Deduct ${money(ded)}${save>=.01?` · saves about ${money(save)} in tax`:base>0?"":" · lowers tax once you log side income"}`;
+  return{a:Math.round(a*100)/100,ded:Math.round(ded*100)/100,miles:mi?v:0}}
 function gigPreview(){const el=document.getElementById("gigLive");if(!el)return null;
   const a=toNum(document.getElementById("gigAmt").value),x=toNum(document.getElementById("gigExp").value)||0;
   if(!(a>0)){el.innerHTML=`<p class="hint" style="margin:0">Enter what you were paid. Clocked works out the tax on top of your job and what you keep.</p>`;return null}
-  const s=SU(),d=document.getElementById("gigDate").value||today(),y=d.slice(0,4),ytd=gigsYTD(y).reduce((t,g)=>t+Math.max(0,g.a-(g.x||0)),0);
+  const s=SU(),d=document.getElementById("gigDate").value||today(),y=d.slice(0,4),ytd=gigProfitYTD(y);
   const net=Math.max(0,a-x),t=gigTaxFor(s,+s.hours||40,ytd,net),kept=a-t.total,rh=realHourly(s,thisWeekHours());
   el.innerHTML=`<div class="tgt-big"><span class="mono" style="color:var(--save)">${money(kept)}</span><small>you keep · ${a?Math.round(t.total/a*100):0}% goes to tax${rh?` · same as ${hrs(kept/rh)} at your job`:""}</small></div>
     <div class="tax" style="margin-top:8px">
@@ -999,12 +1050,13 @@ function addTx(a,c,n,d){const p=P(),m=monthKey(d);const t={id:uid(),d,c,a:Math.r
 
 document.addEventListener("click",e=>{
   const tab=e.target.closest("[data-tab]");if(tab){S.tab=tab.dataset.tab;render();scrollTo({top:0});return}
+  const bc=e.target.closest("[data-bizcat]");if(bc){selBiz=bc.dataset.bizcat;document.querySelectorAll("[data-bizcat]").forEach(x=>x.classList.toggle("on",x===bc));bizPreview();return}
   const cat=e.target.closest("[data-cat]");if(cat){selCat=cat.dataset.cat;document.querySelectorAll(".cat").forEach(x=>x.classList.toggle("on",x===cat));liveHrs();return}
   const el=e.target.closest("[data-act]");if(!el)return;const act=el.dataset.act,id=el.dataset.id,p=S.profile;
   if(act==="open-add")return openAdd();
   if(act==="status")return openStatus();
-  if(act==="sheetmode"){const keep=(document.getElementById("txAmt")||document.getElementById("gigAmt"))?.value||"";sheetMode=el.dataset.v;openAdd();
-    const i=document.getElementById(sheetMode==="gig"?"gigAmt":"txAmt");if(i&&keep){i.value=keep;sheetMode==="gig"?gigPreview():liveHrs()}return}
+  if(act==="sheetmode"){const keep=(document.getElementById("txAmt")||document.getElementById("gigAmt")||document.getElementById("bizAmt"))?.value||"";sheetMode=el.dataset.v;openAdd();
+    const i=document.getElementById(sheetMode==="gig"?"gigAmt":sheetMode==="biz"?"bizAmt":"txAmt");if(i&&keep){i.value=keep;sheetMode==="gig"?gigPreview():sheetMode==="biz"?bizPreview():liveHrs()}return}
   if(act==="savenow"){if(S.sample){toast("Nothing to save yet.");return}retries=0;dirty.profile=true;Object.keys(S.tx).forEach(m=>dirty.months.add(m));saveLocal();
     if(!DB&&IN_CLAUDE()){connect().then(()=>{flush().then(()=>{openStatus();toast(DB&&!syncErr?"Saved":"Saved on this phone")})});return}
     if(!DB){saveLocal();idbSave(true).then(()=>{openStatus();toast(lsOK||idbOK?"Saved on this phone":"This browser won't save. Check Private Browsing.")});return}
@@ -1013,6 +1065,8 @@ document.addEventListener("click",e=>{
     const fallback=()=>{ta.value=txt;ta.focus();ta.select();toast("Backup is in the box. Copy it from there.")};
     try{navigator.clipboard.writeText(txt).then(()=>toast("Backup copied. Paste it in Notes to keep it."),fallback)}catch(_){fallback()}return}
   if(act==="restore"){restoreFrom(document.getElementById("restoreTxt").value);return}
+  if(act==="restorepre"){if(!el.dataset.armed){el.dataset.armed=1;el.textContent="Tap again to replace current data";el.classList.add("danger");return}
+    let t=null;try{t=localStorage.getItem(PRE_KEY)}catch(_){}if(t)restoreFrom(t);return}
   if(act==="backupfile"){if(S.sample){toast("Nothing to back up yet.");return}saveBackupFile();return}
   if(act==="hidewarn"){warnHidden=true;try{localStorage.setItem("clocked.warnHide",String(Date.now()+3*864e5))}catch(_){}render();return}
   if(act==="close-add")return closeAdd();
@@ -1036,6 +1090,8 @@ document.addEventListener("click",e=>{
   if(act==="paymode"){p.payMode=el.dataset.v;markDirty();render();return}
   if(act==="usetgt"){const m=+el.dataset.m,x=+el.dataset.x;const d=addMonths(m);d.setDate(28);p.targetDate=ymd(d);p.extra=x;markDirty();render();
     stamp(fmtMonth(addMonths(m)),"var(--debt)");toast(`Plan set: ${money0(x)} extra/month`);return}
+  if(act==="delbiz"){if(!el.classList.contains("confirm")){el.classList.add("confirm");el.textContent="Delete";setTimeout(()=>{if(el.isConnected){el.classList.remove("confirm");el.textContent="×"}},3000);return}
+    p.bizExp=(p.bizExp||[]).filter(x=>x.id!==id);markDirty();render();return}
   if(act==="delgig"){if(!el.classList.contains("confirm")){el.classList.add("confirm");el.textContent="Delete";setTimeout(()=>{if(el.isConnected){el.classList.remove("confirm");el.textContent="×"}},3000);return}
     const g=(p.gigs||[]).find(g=>g.id===id);if(!g)return;const [k,did]=(g.dest||"week").split(":");
     if(k==="goal"){const o=p.goals.find(x=>x.id===did);if(o)o.saved=Math.max(0,Math.round((+o.saved-g.kept)*100)/100)}
@@ -1059,6 +1115,7 @@ document.getElementById("scrim").addEventListener("click",closeAdd);
 document.addEventListener("input",e=>{
   if(e.target.id==="txAmt")return liveHrs();
   if(e.target.id==="gigAmt"||e.target.id==="gigExp"||e.target.id==="gigDate")return gigPreview();
+  if(e.target.id==="bizAmt"||e.target.id==="bizDate")return bizPreview();
   if(e.target.dataset&&e.target.dataset.ess){const o=readEss()||{},tot=Object.values(o).reduce((a,v)=>a+v,0);
     document.getElementById("essTot").textContent=money0(tot)+"/mo";
     if(!S.sample){SU().ess=o;SU().essentials=0;markDirty();document.getElementById("essWk").textContent=essWkText(tot)}return}
@@ -1092,6 +1149,10 @@ function runForm(f){const kind=f.dataset.form,p=S.profile,num=id=>toNum(document
     if(k==="fund"){const o=p.debts.find(x=>x.id===did);if(o)o.fund=R(Math.min(+o.balance,(+o.fund||0)+g.kept))}
     touchDay(today());markDirty();closeAdd();render();stamp("+"+money0(g.kept),"var(--save)");confetti(90);
     setTimeout(()=>toast(`Set aside ${money(g.tax.total)} for taxes`),400);return}
+  if(kind==="biz"){const r=bizPreview();if(!r){toast(selBiz==="mileage"?"Enter the miles you drove.":"Enter the amount.");return}
+    const x={id:uid(),d:document.getElementById("bizDate").value||today(),c:selBiz,a:r.a,ded:r.ded,miles:r.miles,n:document.getElementById("bizNote").value.trim().slice(0,80),ts:Date.now()};
+    if(!Array.isArray(p.bizExp))p.bizExp=[];p.bizExp.push(x);touchDay(today());markDirty();closeAdd();render();stamp("−"+money0(x.ded),"var(--debt)");
+    setTimeout(()=>toast(`Business expense logged · ${money(x.ded)} deductible`),400);return}
   if(kind==="gigtax"){const a=num("gigTaxPay");if(!(a>0))return;const y=yr();if(!p.gigTaxPaid||Array.isArray(p.gigTaxPaid))p.gigTaxPaid={};p.gigTaxPaid[y]=Math.round(((+p.gigTaxPaid[y]||0)+a)*100)/100;markDirty();render();toast("Tax payment logged");return}
   if(kind==="tx"){const a=num("txAmt");if(!(a>0)){toast("Enter an amount.");return}addTx(a,selCat,document.getElementById("txNote").value.trim(),document.getElementById("txDate").value||today());return}
   if(kind==="debt"){const n=document.getElementById("dn").value.trim(),b=num("db"),a0=num("da"),is=document.getElementById("dis").value,pt=num("dpt"),fd=num("dfd")||0,df=document.getElementById("ddf").checked;
@@ -1120,12 +1181,12 @@ function animateRings(){document.querySelectorAll(".ring .val[data-off]").forEac
 const _render=render;render=function(){_render();animateRings()};
 
 /* boot */
-(function boot(){const l=loadLocal();if(l){S.profile=Object.assign(blankProfile(),l.profile);S.profile.setup=Object.assign(blankProfile().setup,l.profile.setup);S.tx=l.tx||{};S.sample=false;S.localPending=!!l.pending}
+(function boot(){const l=loadLocal();if(l){snapshotOld(l);S.profile=hydrate(l.profile);S.tx=l.tx||{};S.sample=false;S.localPending=!!l.pending}
   else{const s=sampleState();S.profile=s.profile;S.tx=s.tx;S.sample=true}
   if(!S.sample)askPersist();afterLoad();idbRecover().finally(connect)})();
 async function idbRecover(){try{const r=await idbGet();idbOK=true;if(!r||!r.profile){if(!S.sample)idbSave();return}
   const lu=S.sample?-1:(S.profile.updated||0),ru=r.profile.updated||0;
-  if(ru>lu){S.profile=Object.assign(blankProfile(),thaw(r.profile));S.profile.setup=Object.assign(blankProfile().setup,r.profile.setup);S.tx=thaw(r.tx||{});S.sample=false;
+  if(ru>lu){snapshotOld(r);S.profile=hydrate(r.profile);S.tx=thaw(r.tx||{});S.sample=false;
     try{localStorage.setItem(LS,JSON.stringify({profile:S.profile,tx:S.tx}));lsOK=true}catch(_){lsOK=false}afterLoad()}
   else if(ru<lu)idbSave();setSync()}catch(e){idbOK=false;setSync()}}
 </script>
